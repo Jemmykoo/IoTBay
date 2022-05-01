@@ -1,34 +1,39 @@
 <%-- 
-    Document   : Register.jsp
-    Created on : 15/03/2022, 8:32:49 PM
-    Author     : super
+    Document   : register
+    Created on : 15 Mar. 2022, 8:27:38 pm
+    Author     : jemima
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <div>
-            <span><a href="index.html">Home</a>
-        </div>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Register</title>
+        <link rel="stylesheet" href="labcss.css"/>
+        <title>Registration Page</title>
     </head>
     <body>
-        <h1>Register</h1>
-        <form method="POST" action="Welcome.jsp">
-            <table>
-                <tr><td>Email: </td><td><input type="text" name="email"></td></tr>
-                <tr><td>Password:</td><td><input type="password" name="password"></td></tr>
-                <tr><td>Name: </td><td><input type="text" name="name"></td></tr>
-                <tr><td>Phone: </td><td><input type="text" name="phone"></td></tr>
-                <tr><td>Favourite Colour: </td><td><input type="text" name="colour"></td></tr>
-                <tr><td>Date of Birth: </td><td><input type="date" name="dob"></td></tr>
-                <tr><td>Gender: </td><td><input type="text" name="gender"></td></tr>
-                <tr><td>TOS: </td><td><input type="checkbox" name="tos"></td></tr>
-                <tr><td></td><td><input class="button" type="submit" value="Sign Up"></td></tr>
-                <tr><td><a class="button" href="index.html">Cancel</a></td></tr>
-            </table>
-        </form>
+        <div id="bar">
+            <span id="links">
+                <a href="index.jsp">Home Page</a>
+                <a href="login.jsp">Login</a>
+            </span>
+        </div>
+        <h1>Registration Page</h1>
+        <div class="registerform">
+            <form id="form" method="POST" action="welcome.jsp">
+                <table>
+                    <tr><td>First Name:</td><td><input type="text" id="firstname" name="firstname"></td></tr>
+                    <tr><td>Last Name:</td><td><input type="text" id="lastname" name="lastname"></td></tr>
+                    <tr><td>Email:</td><td><input type="text" id="email" name="email"></td></tr>
+                    <tr><td>Phone:</td><td><input type="text" id="phone" name="phone"></td></tr>
+                    <tr><td><span></span></td></tr>
+                    <tr><td>Password:</td><td><input type="password" id="password" name="password"></td></tr>
+                    <tr><td><input class="button" type="submit" value="Sign up"></input></td></tr>
+                </table>  
+            </form>     
+        </div>
+        <div class="footer"><div> </div>
+        </div>
     </body>
 </html>

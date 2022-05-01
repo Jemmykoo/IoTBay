@@ -1,47 +1,29 @@
-<%-- 
-    Document   : Welcome
-    Created on : 22/03/2022, 6:34:28 PM
-    Author     : super
---%>
-<%@page import="uts.isd.model.User" %>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- Document : welcome.jsp Created on : 29 Mar. 2022, 6:55:25 pm Author :
+jemima --%> <%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<%@page import="uts.isd.model.*" %>
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <div>
-        <span><a href="index.html">Home</a>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="labcss.css" />
+    <title>Welcome</title>
+  </head>
+  <body>
+    <div id="bar">
+      <span id="links">
+        <a href="index.jsp">Home Page</a>
+        <a href="login.jsp">Login</a>
+        <a href="register.jsp">Register</a>
+      </span>
     </div>
-    <title>Welcome Page</title>
-</head>
-<body>
-    <%
-        String email = request.getParameter("email");
-        String name = request.getParameter("name");
-        String password = request.getParameter("password");
-        String phone = request.getParameter("phone");
-        String gender = request.getParameter("gender");
-        String colour = request.getParameter("colour");
-        String dob = request.getParameter("dob");
-        String tos = request.getParameter("tos");
-    %>
-
-    <table id="form">       
-        <%if(tos != null) { %>
-                <tr><td>Welcome, <%= name%>!</td></tr>
-                <tr><td>Your email is <%= email%>.</td></tr>
-                <tr><td>Your password is <%= password%>.</td></tr>
-                <tr><td>Your gender is <%= gender%>.</td></tr>
-                <tr><td>Click <a href="Main.jsp">here</a> to proceed to the main page.</td></tr>
-                <tr><td><a class="button" href="index.html">Cancel</a></td></tr>
-            <% } else { %>
-            <tr><td>Sorry, you must agree to the Terms of Service.</td></tr>
-            <tr><td>Click <a href="register.jsp">here</a> to go back.</td</tr>
-            <% } %>    
-        </table>
-        <%
-            User user = new User(name, email, phone, dob);
-            session.setAttribute("user", user);
-        %>
-</body>
+    <% String firstname = request.getParameter("firstname"); String lastname =
+    request.getParameter("lastname"); String email =
+    request.getParameter("email"); String phone = request.getParameter("phone");
+    String password = request.getParameter("password"); %>
+    <h1>Welcome! <%= firstname %> you are now registered</h1>
+    <% User user = new User(firstname, lastname, email, phone, password);
+    session.setAttribute(email,user); %>
+    <div class="footer"><div></div></div>
+  </body>
 </html>
