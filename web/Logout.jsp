@@ -1,24 +1,21 @@
-<%-- 
-    Document   : Logout
-    Created on : 03/04/2022, 8:11:30 PM
-    Author     : super
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- Document : logout Created on : 22 Mar. 2022, 7:05:11 pm Author : jemima
+--%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <div>
-        <span><a href="index.html">Home</a>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="labcss.css" />
+    <title>Logout</title>
+  </head>
+  <body>
+    <div id="bar">
+      <span id="links">
+        <a href="register.jsp">Register</a>
+        <a href="login.jsp">Login</a>
+      </span>
     </div>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Logout</title>
-    </head>
-    <body>
-        <h1>Logging out</h1>
-        <%
-            session.invalidate();
-        %>
-        <p> You have been logged out. Click <a href="index.html">Home</a> to return to the main page.</p>
-    </body>
+    <% session.invalidate(); %>
+    <h1>You Have Logged out. Thank you, have a good day!</h1>
+    <div class="footer"><div></div></div>
+  </body>
 </html>
