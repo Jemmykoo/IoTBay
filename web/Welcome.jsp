@@ -1,6 +1,6 @@
 <%-- Document : welcome.jsp Created on : 29 Mar. 2022, 6:55:25 pm Author :
-jemima --%> <%@page contentType="text/html" pageEncoding="UTF-8"%> 
-<%@page import="uts.isd.model.*" %>
+jemima --%> <%@page contentType="text/html" pageEncoding="UTF-8"%> <%@page
+import="uts.isd.model.*" %>
 
 <!DOCTYPE html>
 <html>
