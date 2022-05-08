@@ -6,7 +6,7 @@ package uts.isd.model;
 
 /**
  *
- * @author Alice
+ * @author Jemima
  */
 public class Product {
 
