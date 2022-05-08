@@ -36,15 +36,16 @@ PRODUCTNAME VARCHAR (255) NOT NULL,
 UNITPRICE DECIMAL (10,2) NOT NULL,
 PRODUCTTYPE VARCHAR (255) NOT NULL,
 QUANTITY INT NOT NULL,
+PRODUCTDESCRIPTION VARCHAR (255) NOT NULL,
 PRIMARY KEY(PRODUCTID)
 );
 
-INSERT INTO PRODUCTS(PRODUCTNAME, UNITPRICE,PRODUCTTYPE,QUANTITY)
+INSERT INTO PRODUCTS(PRODUCTNAME, UNITPRICE,PRODUCTTYPE,QUANTITY,PRODUCTDESCRIPTION)
 VALUES
-('Drone',699.99,'robot',12),
-('Apple Watch',299.99,'wearable',20),
-('Amazon Alexa',666.66,'spyware',25),
-('Google echo',123.45,'spyware',15),
-('Fancy doorbell',50.20,'home',12);
+('Drone',699.99,'robot',12,'flying object'),
+('Apple Watch',299.99,'wearable',20,'wearable watch and fitbit'),
+('Amazon Alexa',666.66,'spyware',25,'home'),
+('Google echo',123.45,'spyware',15,'home'),
+('Fancy doorbell',50.20,'home',12,'video camera doorbell');
 
 SELECT * FROM PRODUCTS;
