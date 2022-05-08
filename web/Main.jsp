@@ -1,6 +1,6 @@
 <%-- Document : main Created on : 22 Mar. 2022, 7:10:41 pm Author : jemima --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%> <%@page
-import="uts.isd.model.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%> 
+<%@page import="uts.isd.model.*" %>
 
 <!DOCTYPE html>
 <html>

@@ -14,6 +14,9 @@
     </head>
     <body>
         <div id="bar">
+            <span id="links"> 
+                <a href="products.jsp">Products</a>
+            </span>
             <span id="links">
                 <a href="register.jsp">Register</a>
                 <a href="./login.jsp">Login</a>
