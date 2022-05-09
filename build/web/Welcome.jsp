@@ -28,7 +28,7 @@ import="uts.isd.model.*"%>
      <p class="welcome-txt">Your email is <%=email%></p>
         <p class="welcome-txt">Your phone number is <%=phone%></p>
      <p class="welcome-txt"> Please click on this button below to confirm your details! </p>
-     <form class="welcome-container" action="newMain.jsp" method="POST">
+     <form class="welcome-container" action="main.jsp" method="POST">
             <button type="submit" class="welcome-goto-btn"> 
                
                 Main 

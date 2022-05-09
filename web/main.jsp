@@ -50,7 +50,7 @@
         </div>
     
             <div>
-                <a href="Edit.jsp">
+                <a href="edit.jsp">
                     <button>
                          Edit Account
                     </button>
