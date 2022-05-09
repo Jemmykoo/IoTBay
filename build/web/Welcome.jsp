@@ -17,13 +17,28 @@ import="uts.isd.model.*" %>
         <a href="register.jsp">Register</a>
       </span>
     </div>
-    <% String firstname = request.getParameter("firstname"); String lastname =
-    request.getParameter("lastname"); String email =
-    request.getParameter("email"); String phone = request.getParameter("phone");
-    String password = request.getParameter("password"); %>
-    <h1>Welcome! <%= firstname %> you are now registered</h1>
-    <% User user = new User(firstname, lastname, email, phone, password);
-    session.setAttribute(email,user); %>
+    <% 
+        String firstname = request.getParameter("firstname"); 
+        String lastname = request.getParameter("lastname"); 
+        String email = request.getParameter("email"); 
+        String phone = request.getParameter("phone");
+        String password = request.getParameter("password"); 
+    %>
+     <h1>Welcome! <%= firstname %> you are now registered</h1>
+     <p class="welcome-txt">Your email is <%=email%></p>
+        <p class="welcome-txt">Your phone number is <%=phone%></p>
+     <p class="welcome-txt"> Please click on this button below to confirm your details! </p>
+     <form class="welcome-container" action="newMain.jsp" method="POST">
+            <button type="submit" class="welcome-goto-btn"> 
+               
+                Main 
+            </button> 
+     </form>
+    <% 
+        User user = new User(firstname, lastname, email, phone, password);
+        session.setAttribute("user",user); 
+    %>
+    
     <div class="footer"><div></div></div>
   </body>
 </html>

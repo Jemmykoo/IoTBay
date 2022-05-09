@@ -23,14 +23,22 @@
         <div class="registerform">
             <form id="form" method="POST" action="welcome.jsp">
                 <table>
-                    <tr><td>First Name:</td><td><input type="text" id="firstname" name="firstname"></td></tr>
-                    <tr><td>Last Name:</td><td><input type="text" id="lastname" name="lastname"></td></tr>
-                    <tr><td>Email:</td><td><input type="text" id="email" name="email"></td></tr>
-                    <tr><td>Phone:</td><td><input type="text" id="phone" name="phone"></td></tr>
+                    <tr><td>First Name:</td><td><input type="text" id="firstname" name="firstname" required></td></tr>
                     <tr><td><span></span></td></tr>
-                    <tr><td>Password:</td><td><input type="password" id="password" name="password"></td></tr>
-                    <tr><td><input class="button" type="submit" value="Sign up"></input></td></tr>
-                </table>  
+                    <tr><td>Last Name:</td><td><input type="text" id="lastname" name="lastname" required></td></tr>
+                    <tr><td><span></span></td></tr>
+                    <tr><td>Email:</td><td><input type="text" id="email" name="email" required></td></tr>
+                    <tr><td><span></span></td></tr>
+                    <tr><td>Phone:</td><td><input type="text" id="phone" name="phone" required></td></tr>
+                    <tr><td><span></span></td></tr>
+                    <tr><td>Password:</td><td><input type="password" id="password" name="password" required></td></tr>
+                    <tr><td><span></span></td></tr>
+                    <tr><td><input class="button" type="submit" value="Sign up"></td></tr>
+                </table>
+                
+                <div class='register-item'>
+                        <p class='register-txt'> Already have an account? <a href="Login.jsp"> Login here! </a> </p>
+                </div>
             </form>     
         </div>
         <div class="footer"><div> </div>

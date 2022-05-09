@@ -19,7 +19,7 @@
             </span>
             <span id="links">
                 <a href="register.jsp">Register</a>
-                <a href="./login.jsp">Login</a>
+                <a href="Login.jsp">Login</a>
             </span>
         </div>
         <h1>The IoTBay!</h1>
