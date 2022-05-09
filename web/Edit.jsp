@@ -4,7 +4,7 @@
     Author     : Justin
 --%>
 
-<%@page import="uts.isd.model.User"%>
+<%@page import="uts.isd.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,69 +14,43 @@
     <title>Edit</title>
   </head>
     <body>
+        
         <div id="bar">
       <span id="links">
         <a href="index.jsp">Home Page</a>
         
-      </span>
-    </div>
+        </div>
         <%
             User user = (User)session.getAttribute("user");
         %>
-        <div class="container">
-            <form class="edit-form" action="Edit.jsp" method="POST">
-                
-                <div class='edit-container'>
-                    <div class='edit-item'>
-                        <h1 class="edit-title"> Edit Details </h1>
-                    </div>
-                    <div class='edit-item'>
-                        <table class="edit-table">
-                            <tbody>
-                                <tr>
-                                    <td> <label for="fname">First Name</label> </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td> <label for="lname">Last Name</label> </td>
-                                   
-                                </tr>
-                                <tr>
-                                    <td> <label for="email">Email</label> </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td> <label for="phonenum">Phone Number</label> </td>
-                                   
-                                </tr>
-                                
-                                <tr>
-                                    <td> <label for="psw">Password</label> </td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td> <label for="psw">Confirm Password</label> </td>
-                                   
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class='edit-item'>
-                        <p class='edit-txt'> <a href="newMain.jsp"> Go Back </a></p>
-                        <button type="submit" class="update-btn">Update Details</button>
-                    </div>
-                </div>
-            </form>
-            <%
-                String firstName = request.getParameter("fname");
-                String lastName = request.getParameter("lname");
-                String email = request.getParameter("email");
-                String password = request.getParameter("pass");
-                String phoneNumber = request.getParameter("phonenum");
-                
-                user = new User(firstName,lastName,email,password,phoneNumber);
-                session.setAttribute("user",user);
-            %>
-        </div>
+        <form method="post" action="Edit.jsp">
+        <table>
+            <tr><td>First Name:</td><td><input type="text" id="firstname" name="firstname" value="${user.firstName}" required></td></tr>
+                    <tr><td><span></span></td></tr>
+                    <tr><td>Last Name:</td><td><input type="text" id="firstname" name="lastname" value="${user.lastName}" required></td></tr>
+                    <tr><td><span></span></td></tr>
+                    <tr><td>Email:</td><td><input type="text" id="firstname" name="email" value="${user.email}" required></td></tr>
+                    <tr><td><span></span></td></tr><!-- comment -->
+                    <tr><td>phone:</td><td><input type="text" id="firstname" name="phone" value="${user.phone}" required></td></tr>
+                    <tr><td><span></span></td></tr><!-- comment -->
+                    <tr><td>password:</td><td><input type="text" id="firstname" name="password" value="${user.password}" required></td></tr>
+                    <tr><td><span></span></td></tr><!-- comment -->
+                    <tr>
+                        <td>
+                            <a href="newMain.jsp">Main</a>
+                            <input class="button" type="submit" value="Update">
+                        </td>
+                    </tr>
+                </table>
+        </form>
+                    <%
+                        String firstname = request.getParameter("firstname");
+                        String lastname = request.getParameter("lastname");
+                        String email = request.getParameter("email");
+                        String phone = request.getParameter("phone");
+                        String password = request.getParameter("password");
+                        user = new User(firstname, lastname, email, phone, password);
+                        session.setAttribute("user", user);
+                    %>
     </body>
 </html>

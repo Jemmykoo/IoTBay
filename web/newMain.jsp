@@ -17,11 +17,12 @@
         <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home Page</a>
-                <a href="login.jsp">Login</a>
+                <a href="logout.jsp">Logout</a>
             </span>
         </div>
         <%
             User user = (User) session.getAttribute("user");
+            
         %>
         
         <div class="main-table-container">
@@ -47,17 +48,14 @@
                 </tbody>
             </table>
         </div>
-                    
-        <div class="btn-container">
-            
-            <div class="btn-container-item">
+    
+            <div>
                 <a href="Edit.jsp">
-                    <button class="view-btn">
+                    <button>
                          Edit Account
                     </button>
                 <a/>
             </div>
-        </div>
 
     </body>
 </html>
