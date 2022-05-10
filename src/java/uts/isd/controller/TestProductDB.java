@@ -5,9 +5,7 @@
 package uts.isd.controller;
 
 import java.sql.*;
-
 import java.util.*;
-
 import java.util.logging.*;
 import uts.isd.model.dao.DBConnector;
 import uts.isd.model.dao.DBManager;
@@ -16,7 +14,7 @@ import uts.isd.model.dao.DBManager;
  *
  * @author Jemima
  */
-public class TestDB {
+public class TestProductDB {
 
     private static Scanner in = new Scanner(System.in);
 
@@ -30,27 +28,27 @@ public class TestDB {
 
             DBManager db = new DBManager(conn);
 
-            System.out.print("User email: ");
+            System.out.print("Product Name: ");
 
-            String email = in.nextLine();
+            String productName = in.nextLine();
 
-            System.out.print("User name: ");
+            System.out.print("Product Unit Price: ");
 
-            String name = in.nextLine();
+            String unitPrice = in.nextLine();
 
-            System.out.print("User password: ");
+            System.out.print("Product Type: ");
 
-            String password = in.nextLine();
+            String productType = in.nextLine();
 
-            System.out.print("User gender: ");
+            System.out.print("Product quantity: ");
 
-            String gender = in.nextLine();
+            String quantity = in.nextLine();
 
-            System.out.print("User favorite color: ");
+            System.out.print("Product Description: ");
 
-            String favcol = in.nextLine();
+            String productDescription = in.nextLine();
 
-            db.addUser(email, name, password, gender, favcol);
+            db.addUser(productName, unitPrice, productType, quantity, productDescription);
 
             System.out.println("User is added to the database.");
 
@@ -58,7 +56,7 @@ public class TestDB {
 
         } catch (ClassNotFoundException | SQLException ex) {
 
-            Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestProductDB.class.getName()).log(Level.SEVERE, null, ex);
 
         }
 
