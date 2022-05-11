@@ -1,5 +1,5 @@
 <%-- Document : main Created on : 22 Mar. 2022, 7:10:41 pm Author : jemima --%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <%@page import="uts.isd.model.*" %>
 
 <!DOCTYPE html>
@@ -10,12 +10,10 @@
     <title>Main</title>
   </head>
   <body>
-    <% String loginEmail = request.getParameter("email"); 
-    String loginPassword = request.getParameter("password"); 
-    try { 
-        User user = (User)session.getAttribute(loginEmail);
-        if(user.getPassword().equals(loginPassword)) { 
-    %>
+    <% String loginEmail = request.getParameter("email"); String loginPassword =
+    request.getParameter("password"); try { User user =
+    (User)session.getAttribute(loginEmail);
+    if(user.getPassword().equals(loginPassword)) { %>
     <div id="bar">
       <span id="links">
         <a href="index.jsp">Home Page</a>

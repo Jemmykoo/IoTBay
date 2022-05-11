@@ -1,49 +1,48 @@
 package uts.isd.model.dao;
 
-import uts.isd.model.User;
+import uts.isd.model.Payment;
 import java.sql.*;
 
 /* 
 * DBManager is the primary DAO class to interact with the database. 
 * Complete the existing methods of this classes to perform CRUD operations with the db.
-*/
-
+ */
 public class DBManager {
 
-private Statement st;
-   
-public DBManager(Connection conn) throws SQLException {       
-   st = conn.createStatement();   
-}
+    private Statement st;
 
-//Find user by email and password in the database   
-public User findUser(String email, String password) throws SQLException {       
-   //setup the select sql query string       
-   //execute this query using the statement field       
-   //add the results to a ResultSet       
-   //search the ResultSet for a user using the parameters               
-   return null;   
-}
+    public DBManager(Connection conn) throws SQLException {
+        st = conn.createStatement();
+    }
 
-//Add a user-data into the database   
-public void addUser(String email, String name, String password, String gender, String favcol) throws SQLException {                   //code for add-operation       
-  st.executeUpdate("sql query");   
+    public Payment findPayment(int paymentID, Date dateOfPayment) throws SQLException {
+        String fetch = "select * from IOTBAYUSER.PaymentHistory where PAYMENTID = '" + paymentID + "' and dateOfPayment = '" + dateOfPayment + "'";     
+        ResultSet rs = st.executeQuery(fetch);      
+        while (rs.next()) {
+            int pID = rs.getInt(1);
+            Date datePaid = rs.getDate(9);
+            if (paymentID == pID && datePaid.equals(dateOfPayment)) {
+                String paymentMethod = rs.getString(3);
+                String nameOnCard = rs.getString(4);
+                String cardNumber = rs.getString(5);
+                Date expiryDate = rs.getDate(6);
+                int CVV = Integer.parseInt(rs.getString(7));
+                double amount = rs.getDouble(8);
+            }
+        }
+        return null;
+    }
 
-}
+    public void addPayment(String paymentMethod,String nameOnCard,String cardNumber,Date expiryDate,int CVV) throws SQLException {
+        st.executeUpdate("INSERT INTO IOTBAYUSER.PaymentHistory " + "VALUES ('" + paymentMethod + "', '" + nameOnCard + "', '" + cardNumber + "','" + expiryDate + "','" + CVV + "')");
+    }
 
-//update a user details in the database   
-public void updateUser( String email, String name, String password, String gender, String favcol) throws SQLException {       
-   //code for update-operation   
+    public void updatePayment(String paymentMethod,String nameOnCard,String cardNumber,Date expiryDate,int CVV) throws SQLException {
+        st.executeUpdate("UPDATE IOTBAYUSER.PaymentHistory SET PAYMENTMETHOD = '" + paymentMethod + "',NAMEONCARD = '" + nameOnCard + "', EXPIRYDATE = '" + cardNumber + "', CVV = '" + expiryDate + "','" + CVV + "')");
+    }
 
-}       
-
-//delete a user from the database   
-public void deleteUser(String email) throws SQLException{       
-   //code for delete-operation   
-
-}
-
-
- 
+    public void deletePayment(int paymentID) throws SQLException {
+        st.executeUpdate("DELETE FROM IOTBAYUSER.PaymentHistory WHERE PAYMENTID = '" + paymentID + "'");
+    }
 
 }

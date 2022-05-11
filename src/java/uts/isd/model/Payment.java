@@ -11,6 +11,7 @@ import java.sql.Date;
  * @author Patrick
  */
 public class Payment {
+    private int paymentID;
     private String paymentMethod;
     private String nameOnCard;
     private String cardNumber;
@@ -19,7 +20,8 @@ public class Payment {
     private double amount;
     private Date dateOfPayment;
 
-    public Payment(String paymentMethod, String nameOnCard, String cardNumber, Date expiryDate, int CVV, double amount, Date dateOfPayment) {
+    public Payment(int paymentID, String paymentMethod, String nameOnCard, String cardNumber, Date expiryDate, int CVV, double amount, Date dateOfPayment) {
+        this.paymentID = paymentID;
         this.paymentMethod = paymentMethod;
         this.nameOnCard = nameOnCard;
         this.cardNumber = cardNumber;
@@ -29,6 +31,14 @@ public class Payment {
         this.dateOfPayment = dateOfPayment;
     }
 
+    public int getPaymentID() {
+        return paymentID;
+    }
+
+    public void setPaymentID(int paymentID) {
+        this.paymentID = paymentID;
+    }
+    
     public String getPaymentMethod() {
         return paymentMethod;
     }

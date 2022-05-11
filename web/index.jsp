@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 01/05/2022, 9:52:25 PM
-    Author     : Alice
+    Author     : Jemima
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -14,6 +14,9 @@
     </head>
     <body>
         <div id="bar">
+            <span id="links"> 
+                <a href="products.jsp">Products</a>
+            </span>
             <span id="links">
                 <a href="register.jsp">Register</a>
                 <a href="./login.jsp">Login</a>
