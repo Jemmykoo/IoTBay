@@ -40,14 +40,14 @@ public class DBPaymentManager {
                 String nameOnCard = rs.getString(4);
                 String cardNumber = rs.getString(5);
                 Date expiryDate = rs.getDate(6);
-                int CVV = Integer.parseInt(rs.getString(7));
+                String CVV = rs.getString(7);
                 double amount = rs.getDouble(8);
             }
         }
         return null;
     }
 
-    public void addPayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, int CVV) throws SQLException {
+    public void addPayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV) throws SQLException {
         st.executeUpdate("INSERT INTO IOTBAYUSER.PaymentHistory " + "VALUES ('" + paymentMethod + "', '" + nameOnCard + "', '" + cardNumber + "','" + expiryDate + "','" + CVV + "')");
     }
 

@@ -11,12 +11,13 @@
         <title>Main</title>
     </head>
     <body>
-        <% String paymentMethod = request.getParameter("paymentMethod");
+        <%  Integer paymentID = (Integer) session.getAttribute("paymentID");
+            String paymentMethod = request.getParameter("paymentMethod");
             String nameOnCard = request.getParameter("nameOnCard");
             String cardNumber = request.getParameter("cardNumber");
             String expiryDate = request.getParameter("expiryDate");
             int CVV = Integer.parseInt(request.getParameter("CVV"));
-        Payment payment = new Payment(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV);%>
+            Payment payment = new Payment(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV);%>
         <div id="bar">
             <span id="links">
                 <a href="main.jsp">Home Page</a>
@@ -50,8 +51,8 @@
                 </tr>      
                 <tr><td><input class="button" type="submit" value="Confirm"></td></tr>
             </table>
-                <p> <a href="paymentdelete">Cancel</a>
-                <p> <a href="paymentedit">Edit</a>
+                <p> <a class="buttonpaycon" href="PaymentEdit?paymentID=<%=paymentID%>">Edit</a>
+                <p> <a class="buttonpaycon" href="PaymentDelete?paymentID=<%=paymentID%>">Cancel</a>
         </div>
         <div class="footer"><div></div></div>
     </body>

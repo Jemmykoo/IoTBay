@@ -10,7 +10,7 @@ public class PaymentValidator implements Serializable {
     private String paymentIDPattern = "[0-9]{5,10}";
     private String cardNumberPattern = "[0-9]{13,16}";
     private String expiryDatePattern = "(0[1-9]|1[012])/[0-9]{4}";
-    private String CVVPattern = "[0-9][3,4]";
+    private String CVVPattern = "[0-9]{3,4}";
     private String orderDatePattern = "(0[1-9]|1[0-9]|2[0-9]|3[01]).(0[1-9]|1[012]).[0-9]{4}";
 
     public PaymentValidator() {
@@ -19,7 +19,6 @@ public class PaymentValidator implements Serializable {
     public boolean validate(String pattern, String input) {
         Pattern regEx = Pattern.compile(pattern);
         Matcher match = regEx.matcher(input);
-
         return match.matches();
 
     }

@@ -22,7 +22,7 @@ import uts.isd.model.dao.DBPaymentManager;
  *
  * @author Patrick
  */
-public class paymenthistorycontroller extends HttpServlet {
+public class PaymentHistoryController extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
@@ -36,7 +36,7 @@ public class paymenthistorycontroller extends HttpServlet {
                System.out.println(userID);
                temp = paymentManager.fetchPayment(userID);
            } catch (SQLException ex) {
-               Logger.getLogger(paymenthistorycontroller.class.getName()).log(Level.SEVERE, null, ex);
+               Logger.getLogger(PaymentHistoryController.class.getName()).log(Level.SEVERE, null, ex);
            }
                 if(temp != null){
                     session.setAttribute("listOfPayments", temp);

@@ -14,9 +14,9 @@ public class Payment {
     private String nameOnCard;
     private String cardNumber;
     private String expiryDate;
-    private int CVV;
+    private String CVV;
     
-    public Payment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, int CVV) {
+    public Payment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV) {
         this.paymentMethod = paymentMethod;
         this.nameOnCard = nameOnCard;
         this.cardNumber = cardNumber;
@@ -56,11 +56,11 @@ public class Payment {
         this.expiryDate = expiryDate;
     }
 
-    public int getCVV() {
+    public String getCVV() {
         return CVV;
     }
 
-    public void setCVV(int CVV) {
+    public void setCVV(String CVV) {
         this.CVV = CVV;
     }
     

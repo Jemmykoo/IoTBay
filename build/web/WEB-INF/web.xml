@@ -10,7 +10,7 @@
     </servlet>
     <servlet>
         <servlet-name>PaymentController</servlet-name>
-        <servlet-class>uts.isd.controller.paymentcontroller</servlet-class>
+        <servlet-class>uts.isd.controller.PaymentController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PaymentHistoryController</servlet-name>
@@ -18,15 +18,15 @@
     </servlet>
     <servlet>
         <servlet-name>PaymentDetailsController</servlet-name>
-        <servlet-class>uts.isd.controller.paymenthistorycontroller</servlet-class>
+        <servlet-class>uts.isd.controller.PaymentHistoryController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PaymentDelete</servlet-name>
-        <servlet-class>uts.isd.controller.paymentdelete</servlet-class>
+        <servlet-class>uts.isd.controller.PaymentDelete</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PaymentEdit</servlet-name>
-        <servlet-class>uts.isd.controller.paymentedit</servlet-class>
+        <servlet-class>uts.isd.controller.PaymentEdit</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PaymentUpdate</servlet-name>
