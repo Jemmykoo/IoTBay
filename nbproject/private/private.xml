@@ -4,10 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/ISD_Assignment_2/IotBay/src/java/uts/isd/model/dao/DBManager.java</file>
-            <file>file:/C:/ISD_Assignment_2/IotBay/src/java/uts/isd/controller/TestDB.java</file>
+            <file>file:/C:/ISD_Assignment_2/IotBay/src/java/uts/isd/controller/TestProductDB.java</file>
+            <file>file:/C:/ISD_Assignment_2/IotBay/src/java/uts/isd/model/Product.java</file>
             <file>file:/C:/ISD_Assignment_2/IotBay/src/java/uts/isd/model/dao/DBConnector.java</file>
-            <file>file:/C:/ISD_Assignment_2/IotBay/src/java/uts/isd/model/User.java</file>
+            <file>file:/C:/ISD_Assignment_2/IotBay/src/java/uts/isd/model/dao/DBOrderManager.java</file>
+            <file>file:/C:/ISD_Assignment_2/IotBay/src/java/uts/isd/model/Order.java</file>
+            <file>file:/C:/ISD_Assignment_2/IotBay/src/java/uts/isd/model/dao/DB.java</file>
             <file>file:/C:/ISD_Assignment_2/IotBay/web/createtables.sql</file>
+            <file>file:/C:/ISD_Assignment_2/IotBay/src/java/uts/isd/model/dao/DBProductManager.java</file>
         </group>
     </open-files>
 </project-private>
