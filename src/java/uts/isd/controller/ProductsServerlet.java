@@ -35,7 +35,7 @@ import uts.isd.model.dao.*;
 public class ProductsServerlet extends HttpServlet {
 
     private DBConnector db;
-    private DBProductManager ProductManager;
+    private ProductsDAO ProductManager;
     private Connection conn;
 
     @Override //Create and instance of DBConnector for the deployment session
@@ -54,7 +54,7 @@ public class ProductsServerlet extends HttpServlet {
         HttpSession session = request.getSession();
         conn = db.openConnection();
         try {
-            ProductManager = new DBProductManager(conn);
+            ProductManager = new ProductsDAO(conn);
         } catch (SQLException ex) {
             Logger.getLogger(ProductsServerlet.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -10,18 +10,24 @@ package uts.isd.model;
  */
 public class Product {
 
+    private int productId;
     private String productName;
     private float unitPrice;
     private String productType;
     private int quantity;
     private String productDescription;
 
-    public Product(String productName, float unitPrice, String productType, int quantity, String productDescription) {
+    public Product(int productId, String productName, float unitPrice, String productType, int quantity, String productDescription) {
+        this.productId = productId;
         this.productName = productName;
         this.unitPrice = unitPrice;
         this.productType = productType;
         this.quantity = quantity;
         this.productDescription = productDescription;
+    }
+
+    public int getProductId() {
+        return productId;
     }
 
     public String getProductName() {
