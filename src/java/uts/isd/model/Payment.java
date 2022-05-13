@@ -4,31 +4,26 @@
  * and open the template in the editor.
  */
 package uts.isd.model;
-import java.sql.Date;
 
 /**
  *
  * @author Patrick
  */
-public class PaymentHistory {
+public class Payment {
     private String paymentMethod;
     private String nameOnCard;
     private String cardNumber;
     private String expiryDate;
     private int CVV;
-    private double amount;
-    private String dateOfPayment;
-
-    public PaymentHistory(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, int CVV, double amount, String dateOfPayment) {
+    
+    public Payment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, int CVV) {
         this.paymentMethod = paymentMethod;
         this.nameOnCard = nameOnCard;
         this.cardNumber = cardNumber;
         this.expiryDate = expiryDate;
         this.CVV = CVV;
-        this.amount = amount;
-        this.dateOfPayment = dateOfPayment;
     }
-    
+
     public String getPaymentMethod() {
         return paymentMethod;
     }
@@ -68,20 +63,5 @@ public class PaymentHistory {
     public void setCVV(int CVV) {
         this.CVV = CVV;
     }
-
-    public double getAmount() {
-        return amount;
-    }
-
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
-    public String getDateOfPayment() {
-        return dateOfPayment;
-    }
-
-    public void setDateOfPayment(String dateOfPayment) {
-        this.dateOfPayment = dateOfPayment;
-    }
+    
 }

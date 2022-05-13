@@ -7,7 +7,7 @@ package uts.isd.model;
 
 /**
  *
- * @author super
+ * @author Patrick
  */
 public class User {
     private String firstName;

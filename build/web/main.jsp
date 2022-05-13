@@ -49,6 +49,7 @@
         <a href="index.jsp">Home Page</a>
         <a href="register.jsp">Register</a>
         <a href="login.jsp">Login</a>
+        <a href="payment.jsp">Payment</a>
       </span>
     </div>
     <div>
@@ -60,6 +61,7 @@
         <a href="index.jsp">Home Page</a>
         <a href="register.jsp">Register</a>
         <a href="login.jsp">Login</a>
+        <a href="payment.jsp">Payment</a>
       </span>
     </div>
     <div>
