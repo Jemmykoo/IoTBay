@@ -10,10 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="labcss.css" />
-        <title>Add Products</title>
+        <title>Products</title>
     </head>
     <body>
         <div id="bar">
+
             <span id="links">
                 <a href="register.jsp">Register</a>
                 <a href="./login.jsp">Login</a>

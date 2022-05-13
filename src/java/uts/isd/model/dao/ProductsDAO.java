@@ -95,5 +95,4 @@ public ArrayList<Product> fetchProducts() throws SQLException {
         int row = deleteSt.executeUpdate();
         System.out.println("row "+row+" deleted successfuly");  
     }
-
 }
