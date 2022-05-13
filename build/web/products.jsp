@@ -9,19 +9,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <link rel="stylesheet" href="labcss.css" />
+        <link rel="stylesheet" href="labcss.css" />
         <title>Products</title>
     </head>
     <body>
         <div id="bar">
-            
+
             <span id="links">
                 <a href="register.jsp">Register</a>
                 <a href="./login.jsp">Login</a>
             </span>
         </div>
         <h1>The products list page</h1>
-                <div class="footer"><div></div></div>
+        <div>
+            <table>
+                <tr>
+                    <td>productName</td>
+                    <td>productType</td>
+                </tr>
+                <tr>
+                    <td>Hello</td>
+                    <td>There</td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer"><div></div></div>
 
     </body>
 </html>
