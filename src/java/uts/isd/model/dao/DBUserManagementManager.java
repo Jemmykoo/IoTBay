@@ -13,7 +13,7 @@ import java.sql.PreparedStatement;
 * Complete the existing methods of this classes to perform CRUD operations with the db.
 */
 
-public class DBUserManagementManager {
+public class DBUserManagementManager extends DB{
 
 private Statement st;
 private PreparedStatement readSt;
@@ -21,23 +21,22 @@ private PreparedStatement updateSt;
 private PreparedStatement deleteSt;
 private PreparedStatement insertSt;
 private PreparedStatement allUserSt;
-private static final String INSERT_USERS_SQL = "INSERT INTO users" + "  (name, email, country) VALUES " + " (?, ?, ?);";
+//private static final String INSERT_USERS_SQL = "INSERT INTO users" + "  (name, email, country) VALUES " + " (?, ?, ?);";
 private String readQuery =  "SELECT * FROM USERS WHERE EMAIL=? AND PASSWORD=?";
 private String updateQuery = "UPDATE USERS SET \"NAME\"=? ,PASSWORD=? ,PHONE=? WHERE ID=?";
 private String deleteQuery = "DELETE FROM USERS WHERE ID= ?";
-private static final String SELECT_ALL_USERS = "select * from users";
-   
+//private static final String SELECT_ALL_USERS = "select * from users";
 
-public DBUserManagementManager() {}
 
 public DBUserManagementManager(Connection conn) throws SQLException {       
         conn.setAutoCommit(true);
+        //Connection conn = DriverManager.getConnection("jdbc:derby://localhost:1527/", "isduser", "admin");
         st = conn.createStatement();
         readSt =  conn.prepareStatement(readQuery);
         updateSt = conn.prepareStatement(updateQuery);
         deleteSt = conn.prepareStatement(deleteQuery); 
-        insertSt = conn.prepareStatement(INSERT_USERS_SQL);
-        allUserSt = conn.prepareStatement(SELECT_ALL_USERS);
+        //insertSt = conn.prepareStatement(INSERT_USERS_SQL);
+        //allUserSt = conn.prepareStatement(SELECT_ALL_USERS);
 }
 
 //Find user by email and password in the database   
@@ -51,9 +50,13 @@ public User findUser(String email, String password) throws SQLException {
 
 //Add a user-data into the database   
 public void addUser(String email, String firstName,String lastName, String password, String phoneNo, boolean isStaff) throws SQLException {                   //code for add-operation       
-        String columns = "INSERT INTO USERS(EMAIL,\"FIRSTNAME\",\"LASTNAME\",PASSWORD,PHONE,ISSTAFF)";
-        String values = "VALUES('" + email + "','" + firstName + "','" + lastName + "','" + password + "','" + phoneNo + "','" + isStaff + "')";
-        st.executeUpdate(columns + values);
+        
+            //INSERT INTO USERS(EMAIL,FIRSTNAME,LASTNAME,PASSWORD,PHONE,ISSTAFF)
+            String columns = "INSERT INTO USERS(EMAIL,\"FIRSTNAME\",\"LASTNAME\",PASSWORD,PHONE,ISSTAFF)";
+            String values = "VALUES('" + email + "','" + firstName + "','" + lastName + "','" + password + "','" + phoneNo + "','" + isStaff + "')";
+            st.executeUpdate("INSERT INTO USERS (email, firstname,lastname, password, phone, isstaff) VALUES('" + email + "','" + firstName + "','" + lastName + "','" + password + "','" + phoneNo + "'," + isStaff + ")");
+        
+
 }
 //update a user details in the database   
 public void updateUser( String email, String name, String password, String gender, String favcol) throws SQLException {       
