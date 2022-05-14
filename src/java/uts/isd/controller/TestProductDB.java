@@ -8,7 +8,7 @@ import java.sql.*;
 import java.util.*;
 import java.util.logging.*;
 import uts.isd.model.dao.DBConnector;
-import uts.isd.model.dao.DBManager;
+import uts.isd.model.dao.ProductsDAO;
 
 /**
  *
@@ -26,7 +26,7 @@ public class TestProductDB {
 
             Connection conn = connector.openConnection();
 
-            DBManager db = new DBManager(conn);
+            ProductsDAO db = new ProductsDAO(conn);
 
             System.out.print("Product Name: ");
 
@@ -34,7 +34,7 @@ public class TestProductDB {
 
             System.out.print("Product Unit Price: ");
 
-            String unitPrice = in.nextLine();
+            float unitPrice = Float.parseFloat(in.nextLine());
 
             System.out.print("Product Type: ");
 
@@ -42,13 +42,13 @@ public class TestProductDB {
 
             System.out.print("Product quantity: ");
 
-            String quantity = in.nextLine();
+            int quantity = Integer.parseInt(in.nextLine());
 
             System.out.print("Product Description: ");
 
             String productDescription = in.nextLine();
 
-            db.addUser(productName, unitPrice, productType, quantity, productDescription);
+            db.addProduct(productName, unitPrice, productType, quantity, productDescription);
 
             System.out.println("User is added to the database.");
 

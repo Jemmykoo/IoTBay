@@ -35,7 +35,7 @@ public class ProductsDAO {
         String columns = "INSERT INTO PRODUCTS(PRODUCTNAME,UNITPRICE,PRODUCTTYPE,QUANTITY,PRODUCTDESCRIPTION)";
         String unitPriceStr = Float.toString(unitPrice);
         String quantityStr = Integer.toString(quantity);
-        String values = "VALUES('" + productName + "','" + unitPriceStr + "','" + productType + "','" + quantityStr + "','" + productDescription + "')";
+        String values = "VALUES('" + productName + "'," + unitPriceStr + ",'" + productType + "'," + quantityStr + ",'" + productDescription + "')";
         st.executeUpdate(columns + values);
     }
 

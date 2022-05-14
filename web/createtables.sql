@@ -33,7 +33,7 @@ DROP TABLE PRODUCTS;
 CREATE TABLE PRODUCTS(
 PRODUCTID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 100, INCREMENT BY 1),
 PRODUCTNAME VARCHAR (255) NOT NULL,
-UNITPRICE DECIMAL (10,2) NOT NULL,
+UNITPRICE FLOAT NOT NULL,
 PRODUCTTYPE VARCHAR (255) NOT NULL,
 QUANTITY INT NOT NULL,
 PRODUCTDESCRIPTION VARCHAR (255) NOT NULL,
@@ -46,7 +46,7 @@ VALUES
 ('Apple Watch',299.99,'wearable',20,'wearable watch and fitbit'),
 ('Amazon Alexa',666.66,'spyware',25,'home'),
 ('Google echo',123.45,'spyware',15,'home'),
-('Fancy doorbell',50.20,'home',12,'video camera doorbell');
+('Fancy doorbell',50.23,'home',12,'video camera doorbell');
 
 DROP TABLE ORDERS;
 
