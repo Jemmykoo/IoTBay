@@ -13,12 +13,8 @@
         <servlet-class>uts.isd.controller.PaymentController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>PaymentHistoryController</servlet-name>
+        <servlet-name>PaymentHistorySearchController</servlet-name>
         <servlet-class>uts.isd.controller.PaymentHistorySearchController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>PaymentDetailsController</servlet-name>
-        <servlet-class>uts.isd.controller.PaymentHistoryController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>PaymentDelete</servlet-name>
@@ -31,6 +27,10 @@
     <servlet>
         <servlet-name>PaymentUpdate</servlet-name>
         <servlet-class>uts.isd.controller.PaymentUpdate</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentHistoryController</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentHistoryController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
@@ -45,12 +45,8 @@
         <url-pattern>/PaymentController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>PaymentHistoryController</servlet-name>
-        <url-pattern>/PaymentHistoryController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>PaymentDetailsController</servlet-name>
-        <url-pattern>/PaymentDetailsController</url-pattern>
+        <servlet-name>PaymentHistorySearchController</servlet-name>
+        <url-pattern>/PaymentHistorySearchController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PaymentDelete</servlet-name>
@@ -63,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>PaymentUpdate</servlet-name>
         <url-pattern>/PaymentUpdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentHistoryController</servlet-name>
+        <url-pattern>/PaymentHistoryController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

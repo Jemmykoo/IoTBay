@@ -1,14 +1,15 @@
 <%-- 
-    Document   : PaymentDetails
-    Created on : 12/05/2022, 3:04:15 AM
+    Document   : paymentsuccess
+    Created on : 15/05/2022, 7:43:29 AM
     Author     : Patrick
---%><%@page import="uts.isd.model.Payment"%>
-
+--%>
+<%@page import="uts.isd.model.Payment"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="stylesheet" href="labcss.css" />
-        <title>Main</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Payment Successful</title>
     </head>
     <body>
         <%  Integer paymentID = (Integer) session.getAttribute("paymentID");
@@ -18,17 +19,9 @@
             String expiryDate = request.getParameter("expiryDate");
             String CVV = request.getParameter("CVV");
             Payment payment = new Payment(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV);%>
-        <div id="bar">
-            <span id="links">
-                <a href="main.jsp">Home Page</a>
-                <a href="logout.jsp">Logout</a>
-            </span>
-        </div>
-        <div>
-            <h2>
-                These are the Payment Details you have Inputted.
-            </h2>
-            <form id="form" method="POST" action="paymentsuccess.jsp">
+        <h1>Payment Successful</h1>
+        <h2>These are the Payment Details you have Inputted. </h2>
+            <form id="form" method="POST" action="main.jsp">
                 <table>
                 <tr>
                     <td>Payment Method:</td>
@@ -53,9 +46,5 @@
                 <tr><td><input class="button" type="submit" value="Confirm"></td></tr>
             </table>
             </form>
-                <p> <a class="buttonpaycon" href="PaymentEdit?paymentID=<%=paymentID%>">Edit</a>
-                <p> <a class="buttonpaycon" href="PaymentDelete?paymentID=<%=paymentID%>">Cancel</a>
-        </div>
-        <div class="footer"><div></div></div>
     </body>
 </html>

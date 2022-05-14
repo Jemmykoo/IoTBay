@@ -28,7 +28,7 @@
             <h2>
                 These are the Payment Details you have Inputted.
             </h2>
-            <form id="form" method="POST" action="PaymentHistory">
+            <form id="form" method="POST" action="paymentsuccess.jsp">
                 <table>
                 <tr>
                     <td>Payment Method:</td>

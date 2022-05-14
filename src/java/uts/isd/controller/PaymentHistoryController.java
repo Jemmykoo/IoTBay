@@ -25,7 +25,7 @@ import uts.isd.model.dao.DBPaymentManager;
 public class PaymentHistoryController extends HttpServlet {
     
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         HttpSession session = request.getSession();
         Integer userID = Integer.parseInt(request.getParameter("userID")); 
        DBPaymentManager paymentManager = (DBPaymentManager) session.getAttribute("paymentManager");

@@ -15,14 +15,6 @@ public class DBPaymentManager {
 
     private Statement st;
     private Connection PaymentConnection;
-    private String paymentMethod;
-    private String nameOnCard;
-    private String cardNumber;
-    private String expiryDate;
-    private int CVV;
-    private int orderID;
-    private double orderPrice;
-    private String orderDate;
     private DBConnector DBCon;
     
     public DBPaymentManager(Connection conn) throws SQLException {
@@ -41,7 +33,7 @@ public class DBPaymentManager {
                 String cardNumber = rs.getString(5);
                 Date expiryDate = rs.getDate(6);
                 String CVV = rs.getString(7);
-                double amount = rs.getDouble(8);
+                double orderPrice = rs.getDouble(8);
             }
         }
         return null;
@@ -86,6 +78,17 @@ public class DBPaymentManager {
 
         return listPaymentH;
     }
+    public int getId(String email, String password) throws SQLException {
+       int ID;
+       String fetch = "select ID FROM IOTBAYUSER.USERS where EMAIL = '" + email + "' and PASSWORD ='"+password+"' " ;
+       ResultSet rs = st.executeQuery(fetch);
+       if (!rs.next()) {
+           return 1;
+       } else {  
+            ID = rs.getInt(1);
+            return ID;
+       }
+    } 
     public int getOrderID() throws SQLException {
        int orderID;
        String fetch = "select max(ORDERID) FROM IOTBAYUSER.ORDERS" ;
@@ -109,8 +112,8 @@ public class DBPaymentManager {
        }
     }
     
-    public ArrayList<String> fetchPayment(Integer userId) throws SQLException {
-        String fetch = "select * from Payment join Orders on Order.orderID = Payment.orderID";
+    public ArrayList<String> fetchPayment(Integer ID) throws SQLException {
+        String fetch = "SELECT * FROM PAYMENT JOIN ORDERS ON ORDERS.ORDERID = PDETAILS.ORDERID JOIN USERS ON USERS.ID = ORDERS.ID WHERE ORDERS.ID=USERID";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<String> temp = new ArrayList();
         while(rs.next()) {

@@ -50,6 +50,7 @@
         <a href="register.jsp">Register</a>
         <a href="login.jsp">Login</a>
         <a href="payment.jsp">Payment</a>
+        <a href="PaymentHistoryController">Payment History</a>
       </span>
     </div>
     <div>
