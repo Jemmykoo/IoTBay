@@ -23,12 +23,17 @@ public class ConnServlet extends HttpServlet {
 
     private ProductsDAO products;
 
+    private ProductsDAO products;
+
     @Override //Create and instance of DBConnector for the deployment session
 
     public void init() {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         System.out.println("HELLO1");
+=======
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
 =======
 >>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
         try {
@@ -48,7 +53,10 @@ public class ConnServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 <<<<<<< HEAD
+<<<<<<< HEAD
         System.out.println("HELLO2");
+=======
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
 =======
 >>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
 
@@ -73,6 +81,10 @@ public class ConnServlet extends HttpServlet {
         session.setAttribute("manager", manager);
         session.setAttribute("products", products);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
 =======
 
 >>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
@@ -90,6 +102,10 @@ public class ConnServlet extends HttpServlet {
 
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
 =======
 
 >>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
