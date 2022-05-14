@@ -21,11 +21,16 @@ public class ConnServlet extends HttpServlet {
     private Connection conn;
     private ProductsDAO products;
 
+    private ProductsDAO products;
+
     @Override //Create and instance of DBConnector for the deployment session
 
     public void init() {
 
+<<<<<<< HEAD
         System.out.println("HELLO1");
+=======
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
         try {
 
             db = new DBConnector();
@@ -42,7 +47,10 @@ public class ConnServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+<<<<<<< HEAD
         System.out.println("HELLO2");
+=======
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
 
         response.setContentType("text/html;charset=UTF-8");
 
@@ -64,6 +72,10 @@ public class ConnServlet extends HttpServlet {
         //export the DB manager to the view-session (JSPs)
         session.setAttribute("manager", manager);
         session.setAttribute("products", products);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)
@@ -77,6 +89,10 @@ public class ConnServlet extends HttpServlet {
         } catch (SQLException ex) {
 
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
         }
 
     }
