@@ -8,7 +8,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" href="labcss.css" />
-        <title>Main</title>
+        <title>Payment Details</title>
     </head>
     <body>
         <%  Integer paymentID = (Integer) session.getAttribute("paymentID");

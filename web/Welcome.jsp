@@ -16,6 +16,7 @@ import="uts.isd.model.*" %>
         <a href="login.jsp">Login</a>
         <a href="register.jsp">Register</a>
         <a href="payment.jsp">Payment</a>
+        <a href="PaymentHistoryController">Payment History</a>
       </span>
     </div>
     <% String firstname = request.getParameter("firstname"); String lastname =

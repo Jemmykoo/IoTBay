@@ -45,16 +45,17 @@
                 </thead>
                 <tbody> 
                     <%  if(rs != null){
-                    for(int i = 0; i < rs.size(); i=i+8){
+                    for(int i = 0; i <= rs.size() - 1; i=i++){
                  %>
-               <td><p> <%=rs.get(0+i)%> </p></td>
-                    <td><p> <%=rs.get(1+i)%> </p></td>
-                    <td><p> <%=rs.get(2+i)%> </p></td>
-                    <td><p> <%=rs.get(3+i)%> </p></td>
-                    <td><p> <%=rs.get(4+i)%>  </p></td>
-                    <td><p> <%=rs.get(5+i)%>  </p></td>
-                    <td><p> <%=rs.get(6+i)%>  </p></td>
-                    <td><p> <%=rs.get(7+i)%> </p></td>
+               <td><p> <%=rs.get(0+i*9)%> </p></td>
+                    <td><p> <%=rs.get(1+i*9)%> </p></td>
+                    <td><p> <%=rs.get(2+i*9)%> </p></td>
+                    <td><p> <%=rs.get(3+i*9)%> </p></td>
+                    <td><p> <%=rs.get(4+i*9)%>  </p></td>
+                    <td><p> <%=rs.get(5+i*9)%>  </p></td>
+                    <td><p> <%=rs.get(6+i*9)%>  </p></td>
+                    <td><p> <%=rs.get(7+i*9)%> </p></td>
+                    <td><p> <%=rs.get(8+i*9)%> </p></td>
                 </tr>
             </table>
                 </tbody>

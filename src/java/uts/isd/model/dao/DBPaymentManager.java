@@ -78,7 +78,7 @@ public class DBPaymentManager {
 
         return listPaymentH;
     }
-    public int getId(String email, String password) throws SQLException {
+    public int getID(String email, String password) throws SQLException {
        int ID;
        String fetch = "select ID FROM IOTBAYUSER.USERS where EMAIL = '" + email + "' and PASSWORD ='"+password+"' " ;
        ResultSet rs = st.executeQuery(fetch);

@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import uts.isd.model.User;
 import uts.isd.model.dao.DBPaymentManager;
 
 /**
@@ -24,30 +25,36 @@ import uts.isd.model.dao.DBPaymentManager;
  */
 public class PaymentHistoryController extends HttpServlet {
     
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Integer userID = Integer.parseInt(request.getParameter("userID")); 
-       DBPaymentManager paymentManager = (DBPaymentManager) session.getAttribute("paymentManager");
-           
-       if(userID != null){
-           ArrayList<String> temp = new ArrayList();
-           try {
-               System.out.println(userID);
-               temp = paymentManager.fetchPayment(userID);
-           } catch (SQLException ex) {
-               Logger.getLogger(PaymentHistoryController.class.getName()).log(Level.SEVERE, null, ex);
-           }
-                if(temp != null){
-                    session.setAttribute("listOfPayments", temp);
-                }  else {
-                    session.setAttribute("fetchMessage", "There is no record in database");
-                }
-                response.sendRedirect("paymenthistory.jsp");
-           
-       } else {
-            request.getRequestDispatcher("paymentsistoryforanon.jsp").include(request, response);
-       }
-    }
     
+    
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        String email = request.getParameter("email"); 
+        String password = request.getParameter("password");
+        System.out.println(email);
+        System.out.println(password);
+        DBPaymentManager paymentManager = (DBPaymentManager) session.getAttribute("paymentManager");
+
+        if (email != null && password != null) {
+            ArrayList<String> temp = new ArrayList();
+            try {
+                int ID;
+                ID = paymentManager.getID(email, password);
+                temp = paymentManager.fetchPayment(ID);
+            } catch (SQLException ex) {
+                Logger.getLogger(PaymentHistoryController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (temp != null) {
+                session.setAttribute("listOfPayments", temp);
+            } else {
+                session.setAttribute("fetchMessage", "There is no record in database");
+            }
+            response.sendRedirect("paymenthistory.jsp");
+        } else {
+            request.getRequestDispatcher("paymenthistoryforanon.jsp").include(request, response);
+        }
+    }
+
 }
