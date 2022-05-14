@@ -48,11 +48,15 @@
                     <td><%=product.getProductType()%></td>
                     <td><%=product.getQuantity()%></td>
                     <td><%=product.getProductDescription()%></td>
-                    <td>
+                    <td >
                         <form action="editProduct.jsp" method="get">
-                            <button name="productId" type="submit" value="<%=product.getProductId()%>"><%=product.getProductId()%></button>
+                            <button name="productId" type="submit" value="<%=product.getProductId()%>">Edit</button>
                         </form></td>
-                    <td>DELETE BUTTON WILL GO HERE</td>
+                    <td></form>
+                        <form method="post" action="DeleteProductServlet">  
+                            <button name="productId" type="submit" value="<%=product.getProductId()%>">Delete</button>
+                        </form>
+                    </td>
                 </tr>
                 <%}
                     }%>

@@ -18,41 +18,29 @@ import uts.isd.model.dao.*;
  *
  * @author George
  */
-public class EditProductServlet extends HttpServlet {
+public class DeleteProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("I AM TRYING TO UPDATE A PRODUCT" );
 
         HttpSession session = request.getSession();
         ProductValidator validator = new ProductValidator();
-        System.out.println("FAILING1");
-        System.out.println("I AM TRYING TO UPDATE A PRODUCT" + request.getParameterMap() + " NOOOO");
 
         int productId = Integer.parseInt(request.getParameter("productId"));
-        String productName = request.getParameter("productName");
-        float unitPrice = Float.parseFloat(request.getParameter("unitPrice"));
-        String productType = request.getParameter("productType");
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        String productDescription = request.getParameter("productDescription");
-
-        System.out.println("FAILING");
 
         ProductsDAO products = (ProductsDAO) session.getAttribute("products");
-        Product product = null;
 
         ProductValidator.clear(session);
 
         try {
-            products.updateProductByID(productId, productName, unitPrice, productType, quantity, productDescription);
+            products.deleteProduct(productId);
             ArrayList<Product> productsList = products.fetchProducts();
-            session.setAttribute("product", product);
             session.setAttribute("productsList", productsList);
             request.getRequestDispatcher("products.jsp").include(request, response);
-
+            System.out.println("Successfully deleted product from the database");
         } catch (SQLException ex) {
-            Logger.getLogger(EditProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteProductServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
