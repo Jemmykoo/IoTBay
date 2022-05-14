@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    
     <servlet>
-<<<<<<< HEAD
-        <servlet-name>userManagementServet</servlet-name>
-        <servlet-class>uts.isd.controller.userManagementServet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>userManagementServet</servlet-name>
-        <url-pattern>/userManagementServet</url-pattern>
-=======
         <servlet-name>ConnServlet</servlet-name>
-        <servlet-class>uts.isd.controller.ConnServlet</servlet-class>
+        <servlet-class>uts.isd.controller.ConnServlet</servlet-class>     
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
         <servlet-name>AddProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.AddProductServlet</servlet-class>
-
-        <load-on-startup>0</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>userManagementServet</servlet-name>
+        <servlet-class>uts.isd.controller.userManagementServet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
@@ -25,8 +21,10 @@
     <servlet-mapping>
         <servlet-name>AddProductServlet</servlet-name>
         <url-pattern>/AddProductServlet</url-pattern>
-
->>>>>>> e99b747f4f9890511b040018769e4ce225a96fd9
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>userManagementServet</servlet-name>
+        <url-pattern>/userManagementServet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

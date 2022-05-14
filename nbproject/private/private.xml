@@ -3,19 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/controller/TestDBUserManagementManager.java</file>
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/WEB-INF/web.xml</file>
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/controller/userManagementServet.java</file>
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/model/dao/DBConnector.java</file>
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/userManagementCreate.jsp</file>
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/model/dao/DBManager.java</file>
-=======
-            <file>file:/C:/Users/Alice/Coding/IoTBay/web/products.jsp</file>
-            <file>file:/C:/Users/Alice/Coding/IoTBay/src/java/uts/isd/controller/TestCRUDProductsDB.java</file>
-            <file>file:/C:/Users/Alice/Coding/IoTBay/web/addProduct.jsp</file>
-            <file>file:/C:/Users/Alice/Coding/IoTBay/web/index.jsp</file>
->>>>>>> e99b747f4f9890511b040018769e4ce225a96fd9
         </group>
     </open-files>
 </project-private>
