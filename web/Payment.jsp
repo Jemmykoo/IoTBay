@@ -12,8 +12,6 @@
         <link rel="stylesheet" href="labcss.css"/>
         <title>Payment Page</title>
         <% String cardNumberErr = (String) session.getAttribute("cardNumberErr"); 
-           String CVVErr = (String) session.getAttribute("CVVErr"); 
-           String expiryDateErr = (String) session.getAttribute("expiryDateErr"); 
         %>
     </head>
     <body>
