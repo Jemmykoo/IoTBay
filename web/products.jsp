@@ -17,6 +17,8 @@
             <span id="links">
                 <a href="register.jsp">Register</a>
                 <a href="./login.jsp">Login</a>
+                <a href="./addProduct.jsp">Add Product</a>
+
             </span>
         </div>
         <h1>The products list page</h1>
