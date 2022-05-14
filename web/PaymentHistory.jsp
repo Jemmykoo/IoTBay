@@ -9,7 +9,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <% ArrayList<String> rs = (ArrayList<String>) session.getAttribute("listOfPayments"); %>
     <head>
         <link rel="stylesheet" href="labcss.css" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -23,7 +22,8 @@
             int CVV = Integer.parseInt(request.getParameter("CVV"));
             double amount = Double.parseDouble(request.getParameter("amount"));
             String dateOfPayment = request.getParameter("dateOfPayment");
-            PaymentHistory paymentHistory = new PaymentHistory(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV, amount, dateOfPayment);%>
+            PaymentHistory paymentHistory = new PaymentHistory(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV, amount, dateOfPayment);
+            ArrayList<String> rs = (ArrayList<String>) session.getAttribute("listOfPayments"); %>
         <h1>Payment History</h1>
         <span id="links">
             <a href="Main.jsp">Home Page</a>

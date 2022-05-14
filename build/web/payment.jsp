@@ -25,7 +25,7 @@
         </div>
         <h1>Order #${orderid}</h1>
         <div class="registerform">
-            <form id="form" method="POST" action="PaymentController">
+            <form id="form" method="post" action="PaymentController">
                 <table>
                     <tr><td>Payment Method:</td><td><input type="text" placeholder="Enter Payment Method:"id="paymentMethod" name="paymentMethod"></td></tr>
                     <tr><td>Name on the Card:</td><td><input type="text" placeholder="Enter the name on the card"id="nameOnCard" name="nameOnCard"></td></tr>

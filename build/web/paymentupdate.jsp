@@ -22,13 +22,13 @@
         </div>
         <h1>Order #${orderid}</h1>
         <div class="registerform">
-            <form id="form" method="POST" action="PaymentDetails.jsp">
+            <form id="form" method="POST" action="paymentdetails.jsp">
                 <table>
                     <tr><td>Payment Method:</td><td><input type="text" id="paymentMethod" name="paymentMethod"></td></tr>
                     <tr><td>Name on the Card:</td><td><input type="text" id="nameOnCard" name="nameOnCard"></td></tr>
                     <tr><td>Card Number:</td><td><input type="text" id="cardNumber" name="cardNumber"></td></tr>
-                    <tr><td>Expiry Date on Card:</td><td><input type="date" id="expiryDate" name="expiryDate"></td></tr>
-                    <tr><td>CVV:</td><td><input type="integer" id="cvv" name="cvv"></td></tr>
+                    <tr><td>Expiry Date on Card:</td><td><input type="month" id="expiryDate" name="expiryDate"></td></tr>
+                    <tr><td>CVV:</td><td><input type="integer" id="CVV" name="CVV"></td></tr>
                     <tr><td><input class="button" type="submit" value="Update"></input></td></tr>
                 </table>  
             </form>     

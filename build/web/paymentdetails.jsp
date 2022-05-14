@@ -16,7 +16,7 @@
             String nameOnCard = request.getParameter("nameOnCard");
             String cardNumber = request.getParameter("cardNumber");
             String expiryDate = request.getParameter("expiryDate");
-            int CVV = Integer.parseInt(request.getParameter("CVV"));
+            String CVV = request.getParameter("CVV");
             Payment payment = new Payment(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV);%>
         <div id="bar">
             <span id="links">
@@ -28,7 +28,8 @@
             <h2>
                 These are the Payment Details you have Inputted.
             </h2>
-            <table id="form" method="POST" action="paymenthistory.jsp">
+            <form id="form" method="POST" action="PaymentHistory">
+                <table>
                 <tr>
                     <td>Payment Method:</td>
                     <td><%= payment.getPaymentMethod()%></td>
@@ -51,6 +52,7 @@
                 </tr>      
                 <tr><td><input class="button" type="submit" value="Confirm"></td></tr>
             </table>
+            </form>
                 <p> <a class="buttonpaycon" href="PaymentEdit?paymentID=<%=paymentID%>">Edit</a>
                 <p> <a class="buttonpaycon" href="PaymentDelete?paymentID=<%=paymentID%>">Cancel</a>
         </div>

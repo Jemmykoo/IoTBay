@@ -26,12 +26,11 @@ public class PaymentDelete extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         HttpSession session = request.getSession();
         Integer paymentID = Integer.parseInt(request.getParameter("paymentID"));
-        DBPaymentManager paymentManager = (DBPaymentManager) session.getAttribute("paymentManager");
+        DBPaymentManager manager = (DBPaymentManager) session.getAttribute("manager");
         
-        Payment payment = null;
         try{
             if(paymentID != null){
-                paymentManager.deletePayment(paymentID);
+                manager.deletePayment(paymentID);
                 session.setAttribute("paymentDeleteWork","Payment successfully deleted");
             }
             else{

@@ -27,14 +27,26 @@ public class PaymentUpdate extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
+        PaymentValidator validator = new PaymentValidator();
         Integer paymentID = Integer.parseInt(request.getParameter("paymentID"));
         String paymentMethod = request.getParameter("paymentMethod");
         String nameOnCard = request.getParameter("nameOnCard");
         String cardNumber = request.getParameter("cardNumber");
         String expiryDate = request.getParameter("expiryDate");
-        int CVV = Integer.parseInt(request.getParameter("CVV"));
+        String CVV = request.getParameter("CVV");
         DBPaymentManager paymentManager = (DBPaymentManager) session.getAttribute("paymentManager");
-
+        
+        if (!validator.validateCardNumber(cardNumber)) {
+            session.setAttribute("cardNumberErr", "Error: Card Number format incorrect");
+            request.getRequestDispatcher("payment.jsp").include(request, response);
+        } else if (!validator.validateCVV(CVV)) {
+            session.setAttribute("CVVErr", "Error: CVV format incorrect");
+            request.getRequestDispatcher("payment.jsp").include(request, response);       
+        } else if (!validator.validateCardNumber(cardNumber)) {
+            session.setAttribute("cardNumberErr", "Error: Card Number format incorrect");
+            request.getRequestDispatcher("payment.jsp").include(request, response);
+        } else {
+        
         try {
             if (paymentID != null) {
                 session.setAttribute("paymentID", paymentID);
@@ -47,6 +59,7 @@ public class PaymentUpdate extends HttpServlet {
             }
         } catch (SQLException ex) {
             Logger.getLogger(PaymentUpdate.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

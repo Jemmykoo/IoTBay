@@ -30,7 +30,7 @@ public class DBPaymentManager {
     }
 
     public PaymentHistory findPayment(String paymentID, String orderDate) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.PaymentHistory where PAYMENTID = '" + paymentID + "' and orderDate = '" + orderDate + "'";
+        String fetch = "select * from IOTBAYUSER.Payment where PAYMENTID = '" + paymentID + "' and orderDate = '" + orderDate + "'";
         ResultSet rs = st.executeQuery(fetch);
         while (rs.next()) {
             int pID = rs.getInt(1);
@@ -47,21 +47,21 @@ public class DBPaymentManager {
         return null;
     }
 
-    public void addPayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV) throws SQLException {
-        st.executeUpdate("INSERT INTO IOTBAYUSER.PaymentHistory " + "VALUES ('" + paymentMethod + "', '" + nameOnCard + "', '" + cardNumber + "','" + expiryDate + "','" + CVV + "')");
+    public void addPayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV, int orderID) throws SQLException {
+        st.executeUpdate("INSERT INTO IOTBAYUSER.PAYMENT(PAYMENTMETHOD, NAMEONCARD, CARDNUMBER, EXPIRYDATE, CVV, ORDERID)" + "VALUES ('" + paymentMethod + "', '" + nameOnCard + "', '" + cardNumber + "','" + expiryDate + "','" + CVV + "'," + orderID + ")");
     }
 
-    public void updatePayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, int CVV) throws SQLException {
-        st.executeUpdate("UPDATE IOTBAYUSER.PaymentHistory SET PAYMENTMETHOD = '" + paymentMethod + "',NAMEONCARD = '" + nameOnCard + "', EXPIRYDATE = '" + cardNumber + "', CVV = '" + expiryDate + "','" + CVV + "')");
+    public void updatePayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV) throws SQLException {
+        st.executeUpdate("UPDATE IOTBAYUSER.Payment SET PAYMENTMETHOD = '" + paymentMethod + "',NAMEONCARD = '" + nameOnCard + "', EXPIRYDATE = '" + cardNumber + "', CVV = '" + expiryDate + "','" + CVV + "')");
     }
 
     public void deletePayment(int paymentID) throws SQLException {
-        st.executeUpdate("DELETE FROM IOTBAYUSER.PaymentHistory WHERE PAYMENTID = '" + paymentID + "'");
+        st.executeUpdate("DELETE FROM IOTBAYUSER.Payment WHERE PAYMENTID = " + paymentID + "");
     }
 
     public List<PaymentHistory> listPaymentHistory() throws SQLException {
         List<PaymentHistory> listPaymentH = new ArrayList<>();
-        String sql = "SELECT * FROM PaymentHistory";
+        String sql = "SELECT * FROM Payment";
         DBCon.openConnection();
         
         Statement statement = PaymentConnection.createStatement();
@@ -88,7 +88,7 @@ public class DBPaymentManager {
     }
     public int getOrderID() throws SQLException {
        int orderID;
-       String fetch = "select max(ORDERIDpayment) FROM IOTBAY.ORDERSPAYMENT" ;
+       String fetch = "select max(ORDERID) FROM IOTBAYUSER.ORDERS" ;
        ResultSet rs = st.executeQuery(fetch);
        if (rs.next()) {
             orderID = rs.getInt(1);
@@ -99,7 +99,7 @@ public class DBPaymentManager {
     }
     public int getPaymentID() throws SQLException {
        int paymentID;
-       String fetch = "select MAX(PAYMENTID) FROM IOTBAY.PAYMENTS" ;
+       String fetch = "select MAX(PAYMENTID) FROM IOTBAYUSER.PAYMENT" ;
        ResultSet rs = st.executeQuery(fetch);
        if (rs.next()) {
             paymentID = rs.getInt(1);

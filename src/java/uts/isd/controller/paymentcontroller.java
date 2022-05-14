@@ -35,7 +35,6 @@ public class PaymentController extends HttpServlet {
         String expiryDate = request.getParameter("expiryDate");
         String CVV = request.getParameter("CVV"); 
         
-        Payment payment = new Payment(paymentMethod,nameOnCard,cardNumber,expiryDate,CVV);
         DBPaymentManager manager = (DBPaymentManager) session.getAttribute("manager");
         
         if (!validator.validateCardNumber(cardNumber)) {
@@ -49,15 +48,15 @@ public class PaymentController extends HttpServlet {
             request.getRequestDispatcher("payment.jsp").include(request, response);
         } else {
         try {
+            Payment payment = new Payment(paymentMethod,nameOnCard,cardNumber,expiryDate,CVV);
             if(payment != null){
             session.setAttribute("payment", payment);
-            Integer orderId = manager.getOrderID();
-            session.setAttribute("orderId", orderId);
-            manager.addPayment(paymentMethod, cardNumber, CVV, nameOnCard, expiryDate);
-            Integer paymentId = manager.getPaymentID();
-            session.setAttribute("paymentId", paymentId);
+            Integer orderID = manager.getOrderID();
+            session.setAttribute("orderId", orderID);
+            manager.addPayment(paymentMethod, cardNumber, CVV, nameOnCard, expiryDate, orderID);
+            Integer paymentID = manager.getPaymentID();
+            session.setAttribute("paymentID", paymentID);
             request.getRequestDispatcher("paymentdetails.jsp").include(request, response);
-            response.sendRedirect("paymentdetails.jsp");
             } else {
                  request.getRequestDispatcher("index.jsp").include(request, response);
              }
