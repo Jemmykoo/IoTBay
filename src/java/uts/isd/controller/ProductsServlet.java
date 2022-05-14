@@ -35,16 +35,12 @@ public class ProductsServlet extends HttpServlet {
     private Connection conn;
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();
-
-
-        products = (ProductsDAO) session.getAttribute("products");
-        ProductValidator validator = new ProductValidator();
-        validator.clear(session);
         try {
-            ArrayList<Product> productsList  = products.fetchProducts();
+            ArrayList<Product> productsList = products.fetchProducts();
+
             if (productsList != null) {
                 System.out.println("List Created");
                 session.setAttribute("productsList", productsList);
@@ -53,6 +49,7 @@ public class ProductsServlet extends HttpServlet {
                 request.getRequestDispatcher("products.jsp").include(request, response);
                 session.setAttribute("existErr", "Products Do Not Exist In The Database");
             }
+
         } catch (SQLException | NullPointerException ex) {
             System.out.println(ex.getMessage() == null ? "Products cannot be loaded" : "welcome");
             Logger.getLogger(ProductsServlet.class.getName()).log(Level.SEVERE, null, ex);

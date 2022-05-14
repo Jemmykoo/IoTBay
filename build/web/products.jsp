@@ -18,20 +18,20 @@
         <div id="bar">
             <span id="links">
                 <a href="register.jsp">Register</a>
-                <a href="./login.jsp">Login</a>
-                <a href="./addProduct.jsp">Add Product</a>
+                <a href="login.jsp">Login</a>
+                <a href="addProduct.jsp">Add Product</a>
 
             </span>
         </div>
         <%
-            ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
+            ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productsList");
         %>
-        <h1>The products list page</h1>
+        <h1>List of Products</h1>
         <div>
-            <table> <tr>
-                    <%if (products != null) {
-                            for (Product product : products) {
-                    %>
+            <table> 
+                <%if (products != null) {
+                        for (Product product : products) {
+                %>
                 <tr>
                     <td><%=product.getProductId()%></td>
                     <td><%=product.getProductName()%></td>
@@ -40,17 +40,12 @@
                     <td><%=product.getQuantity()%></td>
                     <td><%=product.getProductDescription()%></td>
                 </tr>
-                <%}}%>
-                </tr>
-                <tr>
-                    <td>Hello</td>
-                    <td>There</td> <td>Hello</td>
-                    <td>There</td> <td>Hello</td>
-                    <td>There</td>
-                </tr>
+                <%}
+                    }%>
+
             </table>
         </div>
         <div class="footer"><div></div></div>
-
+                <jsp:include page="/ProductsServlet" flush="true"/>
     </body>
 </html>

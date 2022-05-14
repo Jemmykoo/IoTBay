@@ -4,9 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Alice/Coding/IoTBay/web/products.jsp</file>
+            <file>file:/C:/Users/Alice/Coding/IoTBay/src/java/uts/isd/controller/AddProductServlet.java</file>
+            <file>file:/C:/Users/Alice/Coding/IoTBay/src/java/uts/isd/model/dao/ProductsDAO.java</file>
+            <file>file:/C:/Users/Alice/Coding/IoTBay/src/java/uts/isd/controller/ProductValidator.java</file>
             <file>file:/C:/Users/Alice/Coding/IoTBay/src/java/uts/isd/controller/TestCRUDProductsDB.java</file>
+            <file>file:/C:/Users/Alice/Coding/IoTBay/src/java/uts/isd/controller/ConnServlet.java</file>
             <file>file:/C:/Users/Alice/Coding/IoTBay/web/addProduct.jsp</file>
             <file>file:/C:/Users/Alice/Coding/IoTBay/web/index.jsp</file>
+            <file>file:/C:/Users/Alice/Coding/IoTBay/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>
