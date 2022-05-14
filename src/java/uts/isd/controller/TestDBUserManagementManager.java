@@ -16,7 +16,7 @@ import uts.isd.model.dao.DBManagerDavid;
 
 /**
  *
- * @author Alice
+ * @author Jemima
  */
 public class TestDBUserManagementManager {
 

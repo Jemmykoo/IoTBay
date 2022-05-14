@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 01/05/2022, 9:52:25 PM
-    Author     : Alice
+    Author     : Jemima
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,5 +26,6 @@
         </div>
         <h1>The IoTBay!</h1>
         <div class="footer"><div></div></div>
+                <jsp:include page="/ConnServlet" flush="true"/>
     </body>
 </html>
