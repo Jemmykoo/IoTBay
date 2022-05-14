@@ -3,6 +3,7 @@ package uts.isd.controller;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.dao.*;
+import uts.isd.model.*;
 
 public class ConnServlet extends HttpServlet {
 
@@ -21,6 +23,12 @@ public class ConnServlet extends HttpServlet {
     private Connection conn;
 
     private ProductsDAO products;
+    
+    private DBManagerDavid users;
+
+    private ArrayList<Product> productsList;
+    
+    private ArrayList<User> usersList;
 
     @Override //Create and instance of DBConnector for the deployment session
 
@@ -53,19 +61,26 @@ public class ConnServlet extends HttpServlet {
         conn = db.openConnection();
 
         try {
-
+            
             manager = new DBManager(conn);
             products = new ProductsDAO(conn);
+            users = new DBManagerDavid(conn);
+            productsList = products.fetchProducts();
+            usersList = users.fetchUsers();
+            
 
         } catch (SQLException ex) {
 
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
-
         }
 
         //export the DB manager to the view-session (JSPs)
         session.setAttribute("manager", manager);
         session.setAttribute("products", products);
+        session.setAttribute("productsList", productsList);
+        System.out.print("bout to print users list\n");
+        System.out.print(usersList);
+        session.setAttribute("usersList", usersList);
 
     }
 

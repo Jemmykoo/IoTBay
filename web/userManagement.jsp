@@ -26,7 +26,7 @@
 
         <span id="links">
         <a type="button" href="userManagementCreate.jsp">Create Users</a> 
-        <a type="button" href="userManagementViewEdit.jsp">View/Edit Users</a>
+        <a type="button" href="userManagementViewEdit.jsp">View/Delete Users</a>
         <span/>
         
     </body>

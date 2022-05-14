@@ -60,6 +60,10 @@ public class User {
         this.isStaff = isStaff;
     }
 
+    public int getID() {
+        return id;
+    }
+    
     public String getFirstName() {
         return firstName;
     }
