@@ -10,22 +10,60 @@ package uts.isd.model;
  * @author super
  */
 public class User {
+    protected int id;
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
     private String password;
+    private boolean isStaff = false;
 
+    public User() {}
 
-    public User(String firstName,String lastName, String email, String phone, String password) {
+    public User(String firstName,String lastName, String email, String phoneNo, String password) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phoneNo;
+        this.password = password;
+
+    }
+    
+    public User(String firstName,String lastName, String email, String phoneNo, String password, boolean isStaff) {
+        super();
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phoneNo;
+        this.password = password;
+        this.isStaff = isStaff;
+    }
+    
+    public User(int id,String firstName,String lastName, String email, String phoneNo, String password, boolean isStaff) {
+        super();
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phoneNo;
+        this.password = password;
+        this.isStaff = isStaff;
+    }
+    
+    public void addUser(String firstName,String lastName, String email, String phone, String password, boolean isStaff) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.password = password;
-
+        this.isStaff = isStaff;
     }
 
+    public int getID() {
+        return id;
+    }
+    
     public String getFirstName() {
         return firstName;
     }
@@ -65,5 +103,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public boolean getIsStaff() {
+        return isStaff;
+    }
+    
+    public void setIsStaff(boolean isStaff) {
+        this.isStaff = isStaff;
     }
 }

@@ -9,12 +9,17 @@ import uts.isd.model.*;
 * DBManager is the primary DAO class to interact with the database. 
 * Complete the existing methods of this classes to perform CRUD operations with the db.
  */
-public class DBManager {
+public class DBManagerDavid {
 
     private Statement st;
+    private Statement deleteSt;
+    private String deleteQuery = "DELETE FROM USERS WHERE ID = ?";
 
-    public DBManager(Connection conn) throws SQLException {
+
+    public DBManagerDavid(Connection conn) throws SQLException {
         st = conn.createStatement();
+        deleteSt = conn.createStatement();
+        
     }
 
 //Find user by email and password in the database   
@@ -72,7 +77,18 @@ public class DBManager {
 
 //delete a user from the database   
     public void deleteUser(String email) throws SQLException {
-        st.executeUpdate("DELETE FROM  USERS WHERE email ='" + email + "'");
+        st.executeUpdate("DELETE FROM  USERS WHERE email = '" + email + "'");
+    }
+    
+    public void deleteUserByID(String id) throws SQLException {
+        try{
+            //int num = Integer.parseInt( id );
+            deleteSt.executeUpdate("DELETE FROM USERS WHERE id = '" + id + "'");
+
+        }
+        catch(Exception x){
+            System.out.println("ayo not working yo");
+        }
     }
 
 }

@@ -11,12 +11,14 @@ import java.util.*;
 import java.util.logging.*;
 import uts.isd.model.dao.DBConnector;
 import uts.isd.model.dao.DBManager;
+import uts.isd.model.dao.DBUserManagementManager;
+import uts.isd.model.dao.DBManagerDavid;
 
 /**
  *
  * @author Jemima
  */
-public class TestDB {
+public class TestDBUserManagementManager {
 
     private static Scanner in = new Scanner(System.in);
 
@@ -28,29 +30,34 @@ public class TestDB {
 
             Connection conn = connector.openConnection();
 
-            DBManager db = new DBManager(conn);
+            DBManagerDavid db = new DBManagerDavid(conn);
 
             System.out.print("User email: ");
 
             String email = in.nextLine();
 
-            System.out.print("User name: ");
+            System.out.print("User Fname: ");
 
-            String name = in.nextLine();
+            String firstname = in.nextLine();
+            
+            System.out.print("User lname: ");
+
+            String last = in.nextLine();
 
             System.out.print("User password: ");
 
             String password = in.nextLine();
 
-            System.out.print("User gender: ");
+            System.out.print("User phone: ");
 
-            String gender = in.nextLine();
+            String phone = in.nextLine();
 
-            System.out.print("User favorite color: ");
+            System.out.print("User staff? (true or false) ");
+            Scanner n = new Scanner(System.in);
+            boolean isstaff = n.nextBoolean();
+               
 
-            String favcol = in.nextLine();
-
-            db.addUser(email, name, password, gender, favcol);
+            db.addUser(email, firstname, last, password, phone, isstaff);
 
             System.out.println("User is added to the database.");
 
@@ -58,7 +65,7 @@ public class TestDB {
 
         } catch (ClassNotFoundException | SQLException ex) {
 
-            Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestDBUserManagementManager.class.getName()).log(Level.SEVERE, null, ex);
 
         }
 
