@@ -19,7 +19,6 @@
             <span id="links">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
-                <a href="addProduct.jsp">Add Product</a>
 
             </span>
         </div>
@@ -28,7 +27,17 @@
         %>
         <h1>List of Products</h1>
         <div>
-            <table> 
+            <table class="productsTable"> 
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Type</th>
+                    <th>Stock Quantity</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
                 <%if (products != null) {
                         for (Product product : products) {
                 %>
@@ -39,11 +48,15 @@
                     <td><%=product.getProductType()%></td>
                     <td><%=product.getQuantity()%></td>
                     <td><%=product.getProductDescription()%></td>
+                    <td>EDIT BUTTON WILL GO HERE</td>
+                    <td>DELETE BUTTON WILL GO HERE</td>
                 </tr>
                 <%}
                     }%>
 
             </table>
+            <a href="addProduct.jsp">Add Product</a>
+
         </div>
         <div class="footer"><div></div></div>
                 <jsp:include page="/ProductsServlet" flush="true"/>

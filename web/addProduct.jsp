@@ -21,17 +21,16 @@
                 <a href="login.jsp">Login</a>
             </span>
         </div>
-
-        <h1>The products list page</h1>
+        <h1>Add a product to the catalogue</h1>
         <div>
             <form method="post" action="AddProductServlet">
-                <table id="products_form_table">
+                <table id="addProductsForm">
                     <tr><td>Product Name:</td><td><input type="text" name="productName" value="${product.name}"/></td></tr>
                     <tr><td>Product Unit Price:</td><td><input type="text" name="unitPrice" value="${product.unitPrice}"/></td></tr>
                     <tr><td>Product Type:</td><td><input type="text" name="productType" value="${product.productType}"/></td></tr>
                     <tr><td>Product Quantity:</td><td><input type="text" name="quantity" value="${product.quantity}"/></td></tr>
                     <tr><td>Product Description:</td><td><input type="text" name="productDescription" value="${product.productDescription}"/></td></tr>
-                    <tr><td></td><td><a href="ProductsServlet" class="button"></a>
+                    <tr><td></td><td>
                             <input class="button" type="submit" value="Add Product"></td>
                     </tr>
                 </table>

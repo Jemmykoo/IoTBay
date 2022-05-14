@@ -19,11 +19,11 @@
             </span>
             <span id="links">
                 <a href="register.jsp">Register</a>
-                <a href="./login.jsp">Login</a>
+                <a href="login.jsp">Login</a>
             </span>
         </div>
         <h1>The IoTBay!</h1>
         <div class="footer"><div></div></div>
-                <jsp:include page="/ConnServlet" flush="true"/>
+                <jsp:include page="ConnServlet" flush="true"/>
     </body>
 </html>

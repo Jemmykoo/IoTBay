@@ -43,7 +43,7 @@ public class AddProductServlet extends HttpServlet {
             ArrayList<Product> productsList = products.fetchProducts();
             session.setAttribute("product", product);
             session.setAttribute("productsList", productsList);
-            request.getRequestDispatcher("addProduct.jsp").include(request, response);
+            request.getRequestDispatcher("products.jsp").include(request, response);
 
         } catch (SQLException ex) {
             Logger.getLogger(AddProductServlet.class.getName()).log(Level.SEVERE, null, ex);
