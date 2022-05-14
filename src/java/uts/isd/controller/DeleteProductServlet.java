@@ -18,35 +18,29 @@ import uts.isd.model.dao.*;
  *
  * @author George
  */
-public class AddProductServlet extends HttpServlet {
+public class DeleteProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         HttpSession session = request.getSession();
         ProductValidator validator = new ProductValidator();
 
-        String productName = request.getParameter("productName");
-        float unitPrice = Float.parseFloat(request.getParameter("unitPrice"));
-        String productType = request.getParameter("productType");
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
-        String productDescription = request.getParameter("productDescription");
+        int productId = Integer.parseInt(request.getParameter("productId"));
 
         ProductsDAO products = (ProductsDAO) session.getAttribute("products");
-        Product product = null;
 
         ProductValidator.clear(session);
 
         try {
-            products.addProduct(productName, unitPrice, productType, quantity, productDescription);
-            System.out.println("I JUST ADDED A PRODUCT");
+            products.deleteProduct(productId);
             ArrayList<Product> productsList = products.fetchProducts();
-            session.setAttribute("product", product);
             session.setAttribute("productsList", productsList);
             request.getRequestDispatcher("products.jsp").include(request, response);
-
+            System.out.println("Successfully deleted product from the database");
         } catch (SQLException ex) {
-            Logger.getLogger(AddProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DeleteProductServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

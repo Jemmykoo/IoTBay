@@ -18,19 +18,26 @@ import uts.isd.model.dao.*;
  *
  * @author George
  */
-public class AddProductServlet extends HttpServlet {
+public class EditProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("I AM TRYING TO UPDATE A PRODUCT" );
+
         HttpSession session = request.getSession();
         ProductValidator validator = new ProductValidator();
+        System.out.println("FAILING1");
+        System.out.println("I AM TRYING TO UPDATE A PRODUCT" + request.getParameterMap() + " NOOOO");
 
+        int productId = Integer.parseInt(request.getParameter("productId"));
         String productName = request.getParameter("productName");
         float unitPrice = Float.parseFloat(request.getParameter("unitPrice"));
         String productType = request.getParameter("productType");
         int quantity = Integer.parseInt(request.getParameter("quantity"));
         String productDescription = request.getParameter("productDescription");
+
+        System.out.println("FAILING");
 
         ProductsDAO products = (ProductsDAO) session.getAttribute("products");
         Product product = null;
@@ -38,15 +45,14 @@ public class AddProductServlet extends HttpServlet {
         ProductValidator.clear(session);
 
         try {
-            products.addProduct(productName, unitPrice, productType, quantity, productDescription);
-            System.out.println("I JUST ADDED A PRODUCT");
+            products.updateProductByID(productId, productName, unitPrice, productType, quantity, productDescription);
             ArrayList<Product> productsList = products.fetchProducts();
             session.setAttribute("product", product);
             session.setAttribute("productsList", productsList);
             request.getRequestDispatcher("products.jsp").include(request, response);
 
         } catch (SQLException ex) {
-            Logger.getLogger(AddProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EditProductServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

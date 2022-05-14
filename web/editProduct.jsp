@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="labcss.css" />
-        <title>Add Products</title>
+        <title>Edit a Product</title>
     </head>
     <body>
         <div id="bar">
@@ -21,20 +21,20 @@
                 <a href="login.jsp">Login</a>
             </span>
         </div>
-        <h1>Add a product to the catalogue</h1>
+        <h1>Edit an existing item in the catalogue.</h1>
         <div>
-            <form method="post" action="AddProductServlet">
-                <table id="addProductsForm">
-                    <tr><td>Product Name:</td><td><input type="text" name="productName" /></td></tr>
+            <form method="post" action="EditProductServlet">                    
+                <input type="hidden" name="productId" value="<%=(request.getParameter("productId"))%>"/>
+                <table id="editProductsForm">
+                    <tr><td>Product Name:</td><td><input type="text" name="productName"/></td></tr>
                     <tr><td>Product Unit Price:</td><td><input type="text" name="unitPrice"/></td></tr>
-                    <tr><td>Product Type:</td><td><input type="text" name="productType" /></td></tr>
-                    <tr><td>Product Quantity:</td><td><input type="text" name="quantity" /></td></tr>
-                    <tr><td>Product Description:</td><td><input type="text" name="productDescription" /></td></tr>
+                    <tr><td>Product Type:</td><td><input type="text" name="productType"/></td></tr>
+                    <tr><td>Product Quantity:</td><td><input type="text" name="quantity"/></td></tr>
+                    <tr><td>Product Description:</td><td><input type="text" name="productDescription"/></td></tr>
                     <tr><td></td><td>
-                            <input class="button" type="submit" value="Add Product"></td>
+                            <input class="button" type="submit" value="Edit Product"></td>
                     </tr>
                 </table>
-            </form>
         </div>
         <div class="footer"><div></div></div>
 

@@ -3,23 +3,37 @@
     <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>uts.isd.controller.ConnServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
         <servlet-name>AddProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.AddProductServlet</servlet-class>
-
-        <load-on-startup>0</load-on-startup>
     </servlet>
-    <servlet-mapping>
+    <servlet>
+        <servlet-name>EditProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.EditProductServlet</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeleteProductServlet</servlet-class>
+    </servlet>
+        <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddProductServlet</servlet-name>
         <url-pattern>/AddProductServlet</url-pattern>
-
     </servlet-mapping>
-    <session-config>
+    <servlet-mapping>
+        <servlet-name>EditProductServlet</servlet-name>
+        <url-pattern>/EditProductServlet</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>DeleteProductServlet</servlet-name>
+        <url-pattern>/DeleteProductServlet</url-pattern>
+    </servlet-mapping>
+        <session-config>
         <session-timeout>
             30
         </session-timeout>

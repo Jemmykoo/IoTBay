@@ -18,20 +18,29 @@
         <div id="bar">
             <span id="links">
                 <a href="register.jsp">Register</a>
-                <a href="./login.jsp">Login</a>
-                <a href="./addProduct.jsp">Add Product</a>
+                <a href="login.jsp">Login</a>
 
             </span>
         </div>
         <%
-            ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("products");
+            ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productsList");
         %>
-        <h1>The products list page</h1>
+        <h1>List of Products</h1>
         <div>
-            <table> <tr>
-                    <%if (products != null) {
-                            for (Product product : products) {
-                    %>
+            <table class="productsTable"> 
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Type</th>
+                    <th>Stock Quantity</th>
+                    <th>Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <%if (products != null) {
+                        for (Product product : products) {
+                %>
                 <tr>
                     <td><%=product.getProductId()%></td>
                     <td><%=product.getProductName()%></td>
@@ -39,18 +48,24 @@
                     <td><%=product.getProductType()%></td>
                     <td><%=product.getQuantity()%></td>
                     <td><%=product.getProductDescription()%></td>
+                    <td >
+                        <form action="editProduct.jsp" method="get">
+                            <button name="productId" type="submit" value="<%=product.getProductId()%>">Edit</button>
+                        </form></td>
+                    <td></form>
+                        <form method="post" action="DeleteProductServlet">  
+                            <button name="productId" type="submit" value="<%=product.getProductId()%>">Delete</button>
+                        </form>
+                    </td>
                 </tr>
-                <%}}%>
-                </tr>
-                <tr>
-                    <td>Hello</td>
-                    <td>There</td> <td>Hello</td>
-                    <td>There</td> <td>Hello</td>
-                    <td>There</td>
-                </tr>
+                <%}
+                    }%>
+
             </table>
+            <a href="addProduct.jsp">Add Product</a>
+
         </div>
         <div class="footer"><div></div></div>
-
+                <jsp:include page="/ProductsServlet" flush="true"/>
     </body>
 </html>
