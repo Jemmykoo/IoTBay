@@ -7,6 +7,7 @@
     <servlet>
         <servlet-name>AddProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.AddProductServlet</servlet-class>
+
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -16,6 +17,7 @@
     <servlet-mapping>
         <servlet-name>AddProductServlet</servlet-name>
         <url-pattern>/AddProductServlet</url-pattern>
+
     </servlet-mapping>
     <session-config>
         <session-timeout>
