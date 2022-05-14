@@ -35,7 +35,7 @@ public class PaymentController extends HttpServlet {
         String expiryDate = request.getParameter("expiryDate");
         String CVV = request.getParameter("CVV"); 
         
-        DBPaymentManager manager = (DBPaymentManager) session.getAttribute("manager");
+        DBPaymentManager manager = (DBPaymentManager) session.getAttribute("paymentManager");
         
         if (!validator.validateCardNumber(cardNumber)) {
             session.setAttribute("cardNumberErr", "Error: Card Number format incorrect");
