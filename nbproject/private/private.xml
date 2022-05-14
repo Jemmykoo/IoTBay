@@ -8,7 +8,9 @@
             <file>file:/C:/Users/Patrick/Desktop/IoTBay/src/java/uts/isd/model/Payment.java</file>
             <file>file:/C:/Users/Patrick/Desktop/IoTBay/src/java/uts/isd/model/PaymentHistory.java</file>
             <file>file:/C:/Users/Patrick/Desktop/IoTBay/src/java/uts/isd/controller/PaymentController.java</file>
+            <file>file:/C:/Users/Patrick/Desktop/IoTBay/src/java/uts/isd/controller/PaymentDelete.java</file>
             <file>file:/C:/Users/Patrick/Desktop/IoTBay/web/payment.jsp</file>
+            <file>file:/C:/Users/Patrick/Desktop/IoTBay/web/WEB-INF/web.xml</file>
         </group>
     </open-files>
 </project-private>

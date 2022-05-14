@@ -50,14 +50,14 @@ public class PaymentController extends HttpServlet {
         } else {
         try {
             if(payment != null){
-            request.getRequestDispatcher("paymentdetails.jsp").include(request, response);
-            response.sendRedirect("paymentdetails.jsp");
             session.setAttribute("payment", payment);
             Integer orderId = manager.getOrderID();
             session.setAttribute("orderId", orderId);
             manager.addPayment(paymentMethod, cardNumber, CVV, nameOnCard, expiryDate);
             Integer paymentId = manager.getPaymentID();
             session.setAttribute("paymentId", paymentId);
+            request.getRequestDispatcher("paymentdetails.jsp").include(request, response);
+            response.sendRedirect("paymentdetails.jsp");
             } else {
                  request.getRequestDispatcher("index.jsp").include(request, response);
              }
