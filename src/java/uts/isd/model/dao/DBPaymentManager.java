@@ -80,13 +80,13 @@ public class DBPaymentManager {
     }
     public int getID(String email, String password) throws SQLException {
        int ID;
-       String fetch = "select ID FROM IOTBAYUSER.USERS where EMAIL = '" + email + "' and PASSWORD ='"+password+"' " ;
+       String fetch = "select ID FROM IOTBAYUSER.USERS where EMAIL = '" + email + "' and PASSWORD ='" + password + "'" ;
        ResultSet rs = st.executeQuery(fetch);
-       if (!rs.next()) {
-           return 1;
-       } else {  
-            ID = rs.getInt(1);
+       if (rs.next()) {
+           ID = rs.getInt(1);
             return ID;
+       } else {  
+            return 0;
        }
     } 
     public int getOrderID() throws SQLException {

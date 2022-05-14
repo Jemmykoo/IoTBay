@@ -30,9 +30,8 @@ public class PaymentHistoryController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("user");
-        String email = request.getParameter("email"); 
-        String password = request.getParameter("password");
+        String email = (String) session.getAttribute("loginEmail"); 
+        String password = (String) session.getAttribute("loginPassword");
         System.out.println(email);
         System.out.println(password);
         DBPaymentManager paymentManager = (DBPaymentManager) session.getAttribute("paymentManager");

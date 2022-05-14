@@ -10,8 +10,8 @@
     <title>Main</title>
   </head>
   <body>
-    <% String loginEmail = request.getParameter("email"); String loginPassword =
-    request.getParameter("password"); try { User user =
+    <% String loginEmail = request.getParameter("email"); 
+    String loginPassword = request.getParameter("password"); try { User user =
     (User)session.getAttribute(loginEmail);
     if(user.getPassword().equals(loginPassword)) { %>
     <div id="bar">

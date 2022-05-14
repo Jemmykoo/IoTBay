@@ -18,7 +18,7 @@ import uts.isd.model.dao.DBPaymentManager;
 
 /**
  *
- * @author Patrick
+ * @author Patrickl
  */
 public class PaymentDelete extends HttpServlet {
 
