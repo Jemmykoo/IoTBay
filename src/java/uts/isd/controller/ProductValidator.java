@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 package uts.isd.controller;
 
 import java.io.Serializable;
@@ -40,6 +41,8 @@ public class ProductValidator implements Serializable {
 =======
 =======
 >>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
+=======
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -66,6 +69,9 @@ public class ProductValidator {
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
+=======
 >>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
 =======
 >>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
