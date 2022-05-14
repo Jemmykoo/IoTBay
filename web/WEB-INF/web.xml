@@ -3,19 +3,25 @@
     <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>uts.isd.controller.ConnServlet</servlet-class>
+<<<<<<< HEAD
     </servlet>
     <servlet>
         <servlet-name>AddProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.AddProductServlet</servlet-class>
+=======
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
+<<<<<<< HEAD
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddProductServlet</servlet-name>
         <url-pattern>/AddProductServlet</url-pattern>
+=======
+>>>>>>> 396f345f7557a6f8075a23e1324db1270ae04951
     </servlet-mapping>
     <session-config>
         <session-timeout>

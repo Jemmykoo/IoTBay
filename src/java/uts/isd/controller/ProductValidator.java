@@ -5,7 +5,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpSession;
 
-
 public class ProductValidator implements Serializable {
 
     private String productNamePattern = "([A-Z][a-z]+[\\s])+[A-Z][a-z]*";
@@ -36,5 +35,4 @@ public class ProductValidator implements Serializable {
 
     public static void clear(HttpSession session) {
     }
-
 }
