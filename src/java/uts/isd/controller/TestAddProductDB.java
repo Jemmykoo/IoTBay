@@ -14,7 +14,7 @@ import uts.isd.model.dao.ProductsDAO;
  *
  * @author Jemima
  */
-public class TestProductDB {
+public class TestAddProductDB {
 
     private static Scanner in = new Scanner(System.in);
 
@@ -56,7 +56,7 @@ public class TestProductDB {
 
         } catch (ClassNotFoundException | SQLException ex) {
 
-            Logger.getLogger(TestProductDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestAddProductDB.class.getName()).log(Level.SEVERE, null, ex);
 
         }
 
