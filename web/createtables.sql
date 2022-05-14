@@ -1,13 +1,3 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Other/SQLTemplate.sql to edit this template
- */
-/**
- * Author:  Jemima
- * Created: 08/05/2022
- */
-
-DROP TABLE USERS;
 
 CREATE TABLE USERS(
 ID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 100000, INCREMENT BY 1),
@@ -28,7 +18,6 @@ VALUES
 ('albus.dumbledore@uts.edu.au','Albus','Dumbledore','phoenix','1234567890',TRUE),
 ('minerva.mcgonagall@uts.edu.au','Minerva','Mcgonagall','cat','041111111',TRUE);
 
-DROP TABLE PRODUCTS;
 
 CREATE TABLE PRODUCTS(
 PRODUCTID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 100, INCREMENT BY 1),
@@ -48,7 +37,6 @@ VALUES
 ('Google echo',123.45,'spyware',15,'home'),
 ('Fancy doorbell',50.20,'home',12,'video camera doorbell');
 
-DROP TABLE ORDERS;
 
 CREATE TABLE ORDERS(
 ORDERID INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 10000, INCREMENT BY 1),
@@ -64,7 +52,6 @@ VALUES
 (100001,'05/10/2022',699.99),
 (100003,'03/27/2022',123.45);
 
-DROP TABLE CART;
 
 CREATE TABLE CART(
 ORDERID INTEGER NOT NULL,

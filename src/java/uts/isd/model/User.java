@@ -10,21 +10,36 @@ package uts.isd.model;
  * @author super
  */
 public class User {
+
     private String firstName;
     private String lastName;
     private String email;
     private String phone;
     private String password;
+    private int id;
 
+    public User() {
 
-    public User(String firstName,String lastName, String email, String phone, String password) {
+    }
+
+    public User(String firstName, String lastName, String email, String phone, String password,int id) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.password = password;
+        this.id = id;
 
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 
     public String getFirstName() {
         return firstName;
@@ -33,7 +48,6 @@ public class User {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
 
     public String getLastName() {
         return lastName;

@@ -16,10 +16,59 @@
     SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
 -->
 <glassfish-web-app error-url="">
-  <class-loader delegate="true"/>
-  <jsp-config>
-    <property name="keepgenerated" value="true">
-      <description>Keep a copy of the generated servlet class' java code.</description>
-    </property>
-  </jsp-config>
+    <context-root>/</context-root>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <principal-name class-name="uts.isd.servlet.LoginServlet">LoginServlet</principal-name>
+        <servlet-class>uts.isd.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <principal-name class-name="uts.isd.servlet.RegisterServlet">RegisterServlet</principal-name>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <principal-name class-name="uts.isd.servlet.UpdateServlet">UpdateServlet</principal-name>
+    </servlet>
+    <servlet>
+        <servlet-name>RemoveServlet</servlet-name>
+        <principal-name class-name="uts.isd.servlet.RemoveServlet">RemoveServlet</principal-name>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <principal-name class-name="uts.isd.servlet.LogoutServlet">LogoutServlet</principal-name>
+    </servlet>
+  
+  
+  
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/cklogin/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/regUser/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/updUser/*</url-pattern>
+        <servlet-mapping>
+            <servlet-name>RemoveServlet</servlet-name>
+            <url-pattern>/rmUser/*</url-pattern>
+        </servlet-mapping>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RemoveServlet</servlet-name>
+        <url-pattern>/rmUser/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/lgtUser/*</url-pattern>
+    </servlet-mapping>
+    <class-loader delegate="true"/>
+    <jsp-config>
+        <property name="keepgenerated" value="true">
+            <description>Keep a copy of the generated servlet class' java code.</description>
+        </property>
+    </jsp-config>
 </glassfish-web-app>

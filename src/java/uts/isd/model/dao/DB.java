@@ -10,11 +10,19 @@ import java.sql.Connection;
 
 public abstract class DB {   
 
-protected String URL = "jdbc:derby://localhost:1527/";//replace this string with your jdbc:derby local host url   
+//protected String URL = "jdbc:derby://localhost:1527/";//replace this string with your jdbc:derby local host url   
+//protected String db = "IoTBay";//name of the database   
+//protected String dbuser = "jemima";//db root user   
+//protected String dbpass = "jemima"; //db root password   
+//protected String driver = "org.apache.derby.jdbc.ClientDriver"; //jdbc client driver - built in with NetBeans   
+//protected Connection conn; //connection null-instance to be initialized in sub-classes
+
+
+protected String URL = "jdbc:mysql://localhost:3306/";//replace this string with your jdbc:derby local host url   
 protected String db = "IoTBay";//name of the database   
-protected String dbuser = "jemima";//db root user   
-protected String dbpass = "jemima"; //db root password   
-protected String driver = "org.apache.derby.jdbc.ClientDriver"; //jdbc client driver - built in with NetBeans   
+protected String dbuser = "root";//db root user   
+protected String dbpass = ""; //db root password   
+protected String driver = "com.mysql.jdbc.Driver"; //jdbc client driver - built in with NetBeans   
 protected Connection conn; //connection null-instance to be initialized in sub-classes
 
 }

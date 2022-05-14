@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package uts.isd.controller;
 
 import java.sql.*;
@@ -48,7 +44,7 @@ public class TestProductDB {
 
             String productDescription = in.nextLine();
 
-            db.addUser(productName, unitPrice, productType, quantity, productDescription);
+           // db.addUser(productName, unitPrice, productType, quantity, productDescription);
 
             System.out.println("User is added to the database.");
 

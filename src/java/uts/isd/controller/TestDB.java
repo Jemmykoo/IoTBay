@@ -31,26 +31,24 @@ public class TestDB {
             DBManager db = new DBManager(conn);
 
             System.out.print("User email: ");
-
             String email = in.nextLine();
 
-            System.out.print("User name: ");
+            System.out.print("User first name: ");
+            String fname = in.nextLine();
 
-            String name = in.nextLine();
+            System.out.print("User last name: ");
+            String lname = in.nextLine();
 
             System.out.print("User password: ");
-
             String password = in.nextLine();
 
-            System.out.print("User gender: ");
+            System.out.print("User phone: ");
+            String phone = in.nextLine();
 
-            String gender = in.nextLine();
+            System.out.print("User is staff? (0 or 1): ");
+            int isStaff = in.nextInt();
 
-            System.out.print("User favorite color: ");
-
-            String favcol = in.nextLine();
-
-            db.addUser(email, name, password, gender, favcol);
+            db.addUser(email, fname, lname, password, phone, isStaff);
 
             System.out.println("User is added to the database.");
 
