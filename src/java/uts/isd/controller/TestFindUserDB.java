@@ -41,8 +41,6 @@ public class TestFindUserDB {
 
             db.findUser(email, password);
 
-//            System.out.println("User is added to the database.");
-
             connector.closeConnection();
 
         } catch (ClassNotFoundException | SQLException ex) {

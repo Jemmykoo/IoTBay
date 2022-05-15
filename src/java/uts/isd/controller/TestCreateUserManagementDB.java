@@ -17,7 +17,7 @@ import uts.isd.model.dao.UserManagementDAO;
  *
  * @author Jemima
  */
-public class TestCRUDUserManagementDB {
+public class TestCreateUserManagementDB {
 
     private static Scanner in = new Scanner(System.in);
 
@@ -64,7 +64,7 @@ public class TestCRUDUserManagementDB {
 
         } catch (ClassNotFoundException | SQLException ex) {
 
-            Logger.getLogger(TestCRUDUserManagementDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestCreateUserManagementDB.class.getName()).log(Level.SEVERE, null, ex);
 
         }
 

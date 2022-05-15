@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import uts.isd.controller.TestCRUDUserManagementDB;
+import uts.isd.controller.TestCreateUserManagementDB;
 import uts.isd.model.*;
 
 /* 
@@ -20,8 +20,6 @@ public class UserManagementDAO {
 
     public UserManagementDAO(Connection conn) throws SQLException {
         st = conn.createStatement();
-        deleteSt = conn.createStatement();
-
     }
 
 //Find user by email and password in the database   
@@ -79,15 +77,13 @@ public class UserManagementDAO {
     }
 
 //delete a user from the database   
-    public void deleteUser(String email) throws SQLException {
+    public void deleteUserByEmail(String email) throws SQLException {
         st.executeUpdate("DELETE FROM  USERS WHERE email = '" + email + "'");
     }
 
-    public void deleteUserByID(String id) throws SQLException {
+    public void deleteUserByID(int id) throws SQLException {
         try {
-            //int num = Integer.parseInt( id );
-            deleteSt.executeUpdate("DELETE FROM USERS WHERE id = '" + id + "'");
-
+            st.executeUpdate("DELETE FROM USERS WHERE id = " + id);
         } catch (Exception x) {
             System.out.println("ayo not working yo");
         }
