@@ -56,7 +56,9 @@
                     <td><%=user.getIsStaff()%></td>
                     <td >
                         EDIT USER BUTTON</td>
-                    <td>DELETE USER BUTTON
+                    <td> <form method="post" action="DeleteUserServlet">  
+                            <button name="id" type="submit" value="<%=user.getId()%>">Delete</button>
+                        </form>
                     </td>
                 </tr>
                 <%}
