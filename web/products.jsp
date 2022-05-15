@@ -45,8 +45,10 @@
                     <th>Type</th>
                     <th>Stock Quantity</th>
                     <th>Description</th>
-                    <%if (loggedInUser != null) {%><th>Edit</th>
+                        <%if (loggedInUser != null) {
+                            if (loggedInUser.getIsStaff() == true) { %><th>Edit</th>
                     <th>Delete</th> <%
+                            }
                         }
                         %>
                 </tr>
@@ -60,7 +62,8 @@
                     <td><%=product.getProductType()%></td>
                     <td><%=product.getQuantity()%></td>
                     <td><%=product.getProductDescription()%></td>
-                    <%if (loggedInUser != null) {%> <td >
+                    <%if (loggedInUser != null) {
+                            if (loggedInUser.getIsStaff() == true) {%> <td >
                         <form action="editProduct.jsp" method="get">
                             <button name="productId" type="submit" value="<%=product.getProductId()%>">Edit</button>
                         </form></td>
@@ -69,6 +72,7 @@
                             <button name="productId" type="submit" value="<%=product.getProductId()%>">Delete</button>
                         </form>
                     </td> <%
+                            }
                         }
                     %>
 
