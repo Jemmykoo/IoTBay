@@ -40,8 +40,7 @@ jemima --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
             String phone = request.getParameter("phone");
             String password = request.getParameter("password");%>
         <h1>Welcome! <%= firstname%> you are now registered</h1>
-        <% User user = new User(firstname, lastname, email, phone, password);
-            session.setAttribute(email, user);%>
+
         <div class="footer"><div></div></div>
     </body>
 </html>
