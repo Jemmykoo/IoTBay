@@ -15,7 +15,7 @@
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
                 <a href="payment.jsp">Payment</a>
-                <a href="paymentHistoryController">Payment History</a>
+                <a href="PaymentHistoryController">Payment History</a>
                 <a href="userManagement.jsp">User Management</a>
             </span>
         </div>

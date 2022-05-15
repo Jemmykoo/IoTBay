@@ -25,8 +25,6 @@ import uts.isd.model.dao.DBPaymentManager;
  */
 public class PaymentHistoryController extends HttpServlet {
     
-    
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
