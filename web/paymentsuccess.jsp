@@ -28,6 +28,6 @@
             </span>
         </div>
         <h2>Payment Complete.</h2>
-        <p>You can return back to the main page <a href="main.jsp">here</a>
+        <p>You can return back to the main page <a href="index.jsp">here</a>
     </body>
 </html>

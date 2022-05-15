@@ -28,7 +28,7 @@
         </div>
 
         <h1>Login</h1>
-        <form id="form" method="POST" action="main.jsp">
+        <form id="form" method="post" action="LoginServlet">
             <table>   
                 <tr><td>Email:</td><td><input type="text" id="email" name="email"></td></tr>
                 <tr><td>Password:</td><td><input type="password" id="password" name="password"></td></tr>

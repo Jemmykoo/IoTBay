@@ -15,7 +15,7 @@
         <title>Add Products</title>
     </head>
     <body>
-         <div id="bar">
+        <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
@@ -30,9 +30,13 @@
         </div>
         <%
             ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productsList");
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
         %>
         <h1>List of Products</h1>
         <div>
+            <%if (loggedInUser != null) {%><p><%=loggedInUser.getFirstName()%> </p> <%
+                } else {%><span> Hello </span> <%}
+            %>
             <table class="productsTable"> 
                 <tr>
                     <th>Product ID</th>
@@ -72,6 +76,5 @@
 
         </div>
         <div class="footer"><div></div></div>
-                <jsp:include page="/ProductsServlet" flush="true"/>
     </body>
 </html>

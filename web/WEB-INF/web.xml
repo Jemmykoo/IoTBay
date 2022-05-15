@@ -42,6 +42,10 @@
         <servlet-class>uts.isd.controller.AddUserServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>uts.isd.controller.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>EditProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.EditProductServlet</servlet-class>
     </servlet>
@@ -90,14 +94,17 @@
         <url-pattern>/AddUserServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>EditProductServlet</servlet-name>
         <url-pattern>/EditProductServlet</url-pattern>
     </servlet-mapping>
      <servlet-mapping>
         <servlet-name>DeleteProductServlet</servlet-name>
         <url-pattern>/DeleteProductServlet</url-pattern>
-    </servlet-mapping>
-    
+    </servlet-mapping>   
     <session-config>
         <session-timeout>
             30

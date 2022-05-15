@@ -10,7 +10,7 @@
         <title>Main</title>
     </head>
     <body>
-        <% String loginEmail = request.getParameter("email");
+<!--        <% String loginEmail = request.getParameter("email");
             String loginPassword = request.getParameter("password");
             try {
                 User user
@@ -80,6 +80,6 @@
             <h1>User does not exist.</h1>
         </div>
         <% }%>
-        <div class="footer"><div></div></div>
+        <div class="footer"><div></div></div>-->
     </body>
 </html>
