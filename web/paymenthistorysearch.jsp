@@ -14,7 +14,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <body>m
+            <span id="links">
+                <a href="index.jsp">Home</a>
+                <a href="products.jsp">Products</a>
+                <a href="register.jsp">Register</a>
+                <a href="login.jsp">Login</a>
+                <a href="payment.jsp">Payment</a>
+                <a href="paymentHistoryController">Payment History</a>
+            </span>
+        </div>
         <% String paymentMethod = request.getParameter("paymentMethod");
             String nameOnCard = request.getParameter("nameOnCard");
             String cardNumber = request.getParameter("cardNumber");
@@ -22,10 +31,10 @@
             int CVV = Integer.parseInt(request.getParameter("CVV"));
             double amount = Double.parseDouble(request.getParameter("amount"));
             String dateOfPayment = request.getParameter("dateOfPayment");
-        PaymentHistory paymentHistory = new PaymentHistory(paymentMethod,nameOnCard,cardNumber,expiryDate,CVV,amount,dateOfPayment);%>
+            PaymentHistory paymentHistory = new PaymentHistory(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV, amount, dateOfPayment);%>
         <h1>Search for Payment</h1>
         <table>
-	<thead>
+            <thead>
                 <tr>
                     <th><b>Payment Id</b></th>
                     <th><b>Date Paid</b></th>
@@ -36,8 +45,8 @@
                     <th><b>Name On Card</b></th>
                     <th><b>Expiry Date</b></th>
                 </tr>
-        </thead>
-        <tbody> 
+            </thead>
+            <tbody> 
                 <tr>
                     <td><p>${paymentId}</p></td>
                     <td><p><%=paymentHistory.getDateOfPayment()%></p></td>
@@ -48,7 +57,7 @@
                     <td><p><%=paymentHistory.getNameOnCard()%></p></td>
                     <td><p><%=paymentHistory.getExpiryDate()%></p></td>
                 </tr> 
-        </tbody>
+            </tbody>
         </table> 
     </body>
 </html>

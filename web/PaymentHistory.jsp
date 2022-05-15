@@ -25,10 +25,16 @@
             PaymentHistory paymentHistory = new PaymentHistory(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV, amount, dateOfPayment);
             ArrayList<String> rs = (ArrayList<String>) session.getAttribute("listOfPayments"); %>
         <h1>Payment History</h1>
-        <span id="links">
-            <a href="Main.jsp">Home Page</a>
-            <a href="logout.jsp">Logout</a>
-        </span>
+        <div id="bar">
+            <span id="links">
+                <a href="index.jsp">Home</a>
+                <a href="products.jsp">Products</a>
+                <a href="register.jsp">Register</a>
+                <a href="login.jsp">Login</a>
+                <a href="payment.jsp">Payment</a>
+                <a href="paymentHistoryController">Payment History</a>
+            </span>
+        </div>
         <form class="smart-form">
             <table>
                 <thead>
@@ -44,30 +50,21 @@
                     </tr>
                 </thead>
                 <tbody> 
-                    <%  if(rs != null){
-                    for(int i = 0; i <= rs.size() - 1; i=i++){
-                 %>
-               <td><p> <%=rs.get(0+i*9)%> </p></td>
-                    <td><p> <%=rs.get(1+i*9)%> </p></td>
-                    <td><p> <%=rs.get(2+i*9)%> </p></td>
-                    <td><p> <%=rs.get(3+i*9)%> </p></td>
-                    <td><p> <%=rs.get(4+i*9)%>  </p></td>
-                    <td><p> <%=rs.get(5+i*9)%>  </p></td>
-                    <td><p> <%=rs.get(6+i*9)%>  </p></td>
-                    <td><p> <%=rs.get(7+i*9)%> </p></td>
-                    <td><p> <%=rs.get(8+i*9)%> </p></td>
+                    <%  if (rs != null) {
+                            for (int i = 0; i <= rs.size() - 1; i = i++) {
+                    %>
+                <td><p> <%=rs.get(0 + i * 9)%> </p></td>
+                <td><p> <%=rs.get(1 + i * 9)%> </p></td>
+                <td><p> <%=rs.get(2 + i * 9)%> </p></td>
+                <td><p> <%=rs.get(3 + i * 9)%> </p></td>
+                <td><p> <%=rs.get(4 + i * 9)%>  </p></td>
+                <td><p> <%=rs.get(5 + i * 9)%>  </p></td>
+                <td><p> <%=rs.get(6 + i * 9)%>  </p></td>
+                <td><p> <%=rs.get(7 + i * 9)%> </p></td>
+                <td><p> <%=rs.get(8 + i * 9)%> </p></td>
                 </tr>
-            </table>
                 </tbody>
             </table> 
         </form>
-        <div id="bar">
-            <span id="links">
-                <a href="index.jsp">Home Page</a>
-                <a href="register.jsp">Register</a>
-                <a href="login.jsp">Login</a>
-                <a href="PaymentDetails.jsp">Payment Details</a>
-            </span>
-        </div>
     </body>
 </html>

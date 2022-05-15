@@ -20,8 +20,12 @@
             Payment payment = new Payment(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV);%>
         <div id="bar">
             <span id="links">
-                <a href="main.jsp">Home Page</a>
-                <a href="logout.jsp">Logout</a>
+                <a href="index.jsp">Home</a>
+                <a href="products.jsp">Products</a>
+                <a href="register.jsp">Register</a>
+                <a href="login.jsp">Login</a>
+                <a href="payment.jsp">Payment</a>
+                <a href="paymentHistoryController">Payment History</a>
             </span>
         </div>
         <div>
@@ -30,31 +34,31 @@
             </h2>
             <form id="form" method="POST" action="paymentsuccess.jsp">
                 <table>
-                <tr>
-                    <td>Payment Method:</td>
-                    <td><%= payment.getPaymentMethod()%></td>
-                </tr>
-                <tr>
-                    <td>Name on Card:</td>
-                    <td><%= payment.getNameOnCard()%></td>
-                </tr>
-                <tr>
-                    <td>Card Number:</td>
-                    <td><%= payment.getCardNumber()%></td>
-                </tr>
-                <tr>
-                    <td>Expiry Date:</td>
-                    <td><%= payment.getExpiryDate()%></td>
-                </tr>
-                <tr>
-                    <td>CVV:</td>
-                    <td><%= payment.getCVV()%></td>
-                </tr>      
-                <tr><td><input class="button" type="submit" value="Confirm"></td></tr>
-            </table>
+                    <tr>
+                        <td>Payment Method:</td>
+                        <td><%= payment.getPaymentMethod()%></td>
+                    </tr>
+                    <tr>
+                        <td>Name on Card:</td>
+                        <td><%= payment.getNameOnCard()%></td>
+                    </tr>
+                    <tr>
+                        <td>Card Number:</td>
+                        <td><%= payment.getCardNumber()%></td>
+                    </tr>
+                    <tr>
+                        <td>Expiry Date:</td>
+                        <td><%= payment.getExpiryDate()%></td>
+                    </tr>
+                    <tr>
+                        <td>CVV:</td>
+                        <td><%= payment.getCVV()%></td>
+                    </tr>      
+                    <tr><td><input class="button" type="submit" value="Confirm"></td></tr>
+                </table>
             </form>
-                <p> <a class="buttonpaycon" href="PaymentEdit?paymentID=<%=paymentID%>">Edit</a>
-                <p> <a class="buttonpaycon" href="PaymentDelete?paymentID=<%=paymentID%>">Cancel</a>
+            <p> <a class="buttonpaycon" href="PaymentEdit?paymentID=<%=paymentID%>">Edit</a>
+            <p> <a class="buttonpaycon" href="PaymentDelete?paymentID=<%=paymentID%>">Cancel</a>
         </div>
         <div class="footer"><div></div></div>
     </body>

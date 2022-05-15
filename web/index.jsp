@@ -15,11 +15,12 @@
     <body>
         <div id="bar">
             <span id="links"> 
+                <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
                 <a href="payment.jsp">Payment</a>
-                <a href="PaymentHistoryController">Payment History</a>
+                <a href="paymentHistoryController">Payment History</a>
             </span>
         </div>
         <h1>The IoTBay!</h1>
