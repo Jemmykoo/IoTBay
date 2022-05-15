@@ -3,15 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/controller/TestDBUserManagementManager.java</file>
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/model/dao/DBUserManagementManager.java</file>
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/controller/userManagementServet.java</file>
-            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/createtables.sql</file>
-            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/userManagementCreate.jsp</file>
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/userManagement.jsp</file>
-            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/model/dao/DBManager.java</file>
-            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/controller/userManagementView.java</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/userManagementCreate.jsp</file>
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/model/dao/DBManagerDavid.java</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/index.jsp</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/controller/TestUsermanagementDeleteUser.java</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/model/dao/DBConnector.java</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/createtables.sql</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/model/dao/DBManager.java</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/model/User.java</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/controller/ConnServlet.java</file>
+            <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/src/java/uts/isd/controller/userManagementView.java</file>
             <file>file:/C:/Users/PCByte/Documents/NetBeansProjects/IoTBayNew/web/userManagementViewEdit.jsp</file>
         </group>
     </open-files>
