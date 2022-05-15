@@ -44,7 +44,7 @@ public class AddUserServlet extends HttpServlet {
             ArrayList<User> usersList = users.fetchUsers();
             session.setAttribute("users", users);
             session.setAttribute("usersList", usersList);
-            request.getRequestDispatcher("userManagement.jsp").include(request, response);
+            request.getRequestDispatcher("welcome.jsp").include(request, response);
 
         } catch (SQLException ex) {
             Logger.getLogger(AddUserServlet.class.getName()).log(Level.SEVERE, null, ex);
