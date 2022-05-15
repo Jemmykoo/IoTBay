@@ -37,8 +37,10 @@
                     <tr><td>Email:</td><td><input type="text" name="email" /></td></tr>
                     <tr><td>Password:</td><td><input type="text" name="password" /></td></tr>
                     <tr><td>Phone Number:</td><td><input type="text" name="phoneNo" /></td></tr>
-                    <tr><td>Is Staff:</td><td><input type="text" name="isStaff" /></td></tr> 
-                    <!--turn into checkbox-->
+                    <tr>
+                        <td>User Level:</td><td><input type="radio" name="isStaff" value="false" checked />Customer</td>
+                        <td><input type="radio" name="isStaff" value="false"/>Staff</td>
+                    </tr> 
                     <tr><td></td><td>
                             <input class="button" type="submit" value="Add User"></td>
                     </tr>

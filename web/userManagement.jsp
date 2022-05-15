@@ -41,7 +41,6 @@
                     <th>Email</th>
                     <th>Phone number</th>
                     <th>Is Staff</th>
-                    <th>Edit</th>
                     <th>Delete</th>
                 </tr>
                 <%if (users != null) {
@@ -54,8 +53,7 @@
                     <td><%=user.getEmail()%></td>
                     <td><%=user.getPhone()%></td>
                     <td><%=user.getIsStaff()%></td>
-                    <td >
-                        EDIT USER BUTTON</td>
+                    
                     <td> <form method="post" action="DeleteUserServlet">  
                             <button name="id" type="submit" value="<%=user.getId()%>">Delete</button>
                         </form>
