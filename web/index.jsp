@@ -13,18 +13,20 @@
         <title>Welcome Page</title>
     </head>
     <body>
-        <div id="bar">
-            <span id="links"> 
+         <div id="bar">
+            <span id="links">
                 <a href="index.jsp">Home</a>
-                <a href="products.jsp">Products</a>
-                <a href="register.jsp">Register</a>
-                <a href="login.jsp">Login</a>
+                <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
                 <a href="PaymentHistoryController">Payment History</a>
                 <a href="userManagement.jsp">User Management</a>
             </span>
+            <span id="loginlinks">
+                <a href="register.jsp">Register</a>
+                <a href="login.jsp">Login</a>
+            </span>
         </div>
-        <h1>The IoTBay!</h1>
+        <h1>Welcome to the IoTBay!</h1>
         <div class="footer"><div></div></div>
                 <jsp:include page="ConnServlet" flush="true"/>
     </body>

@@ -15,16 +15,17 @@
         <title>Add Products</title>
     </head>
     <body>
-        <div id="bar">
+         <div id="bar">
             <span id="links">
-               <a href="index.jsp">Home</a>
-                <a href="products.jsp">Products</a>
-                <a href="register.jsp">Register</a>
-                <a href="login.jsp">Login</a>
+                <a href="index.jsp">Home</a>
+                <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
                 <a href="PaymentHistoryController">Payment History</a>
                 <a href="userManagement.jsp">User Management</a>
-
+            </span>
+            <span id="loginlinks">
+                <a href="register.jsp">Register</a>
+                <a href="login.jsp">Login</a>
             </span>
         </div>
         <%

@@ -71,6 +71,12 @@ a:active {
   font-size: 18px;
   padding: 5px;
   word-spacing: 2px;
+  float: left;
+}
+#loginlinks {
+  font-size: 18px;
+  padding: 5px;
+  word-spacing: 2px;
   float: right;
 }
 

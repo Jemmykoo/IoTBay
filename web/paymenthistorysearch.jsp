@@ -14,16 +14,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>m
-            <span id="links">
-                <a href="index.jsp">Home</a>
-                <a href="products.jsp">Products</a>
-                <a href="register.jsp">Register</a>
-                <a href="login.jsp">Login</a>
-                <a href="payment.jsp">Payment</a>
-                <a href="PaymentHistoryController">Payment History</a>
-            </span>
-        </div>
+    <body><div id="bar">
+        <span id="links">
+            <a href="index.jsp">Home</a>
+            <a href="products.jsp">Products</a>                
+            <a href="payment.jsp">Payment</a>
+            <a href="PaymentHistoryController">Payment History</a>
+            <a href="userManagement.jsp">User Management</a>
+        </span>
+        <span id="loginlinks">
+            <a href="register.jsp">Register</a>
+            <a href="login.jsp">Login</a>
+        </span>
+    </div> 
         <% String paymentMethod = request.getParameter("paymentMethod");
             String nameOnCard = request.getParameter("nameOnCard");
             String cardNumber = request.getParameter("cardNumber");

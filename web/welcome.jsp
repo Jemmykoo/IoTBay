@@ -10,16 +10,17 @@ jemima --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <title>Welcome</title>
     </head>
     <body>
-        <div id="bar">
+         <div id="bar">
             <span id="links">
-                <a href="index.jsp">Home Page</a>
-                <a href="products.jsp">Products</a>
+                <a href="index.jsp">Home</a>
+                <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
-                <a href="PaymentHistoryController">Payment History</a> 
-                <a href="login.jsp">Login</a>
-                <a href="register.jsp">Register</a>
+                <a href="PaymentHistoryController">Payment History</a>
                 <a href="userManagement.jsp">User Management</a>
-
+            </span>
+            <span id="loginlinks">
+                <a href="register.jsp">Register</a>
+                <a href="login.jsp">Login</a>
             </span>
         </div>
         <% String firstname = request.getParameter("firstname");
