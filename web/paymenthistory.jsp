@@ -4,6 +4,9 @@
     Author     : Patrick
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.sql.Date"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="uts.isd.model.PaymentHistory"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -15,17 +18,10 @@
         <title>Payment History</title>
     </head>
     <body>
-        <% String paymentMethod = request.getParameter("paymentMethod");
-            String nameOnCard = request.getParameter("nameOnCard");
-            String cardNumber = request.getParameter("cardNumber");
-            String expiryDate = request.getParameter("expiryDate");
-            int CVV = Integer.parseInt(request.getParameter("CVV"));
-            double amount = Double.parseDouble(request.getParameter("amount"));
-            String dateOfPayment = request.getParameter("dateOfPayment");
-            PaymentHistory paymentHistory = new PaymentHistory(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV, amount, dateOfPayment);
-            ArrayList<String> rs = (ArrayList<String>) session.getAttribute("listOfPayments"); %>
+        <%  ArrayList<String> paymentList = (ArrayList<String>) session.getAttribute("listOfPayments");
+        System.out.println(paymentList);%>
         <h1>Payment History</h1>
-      <div id="bar">
+        <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
@@ -43,30 +39,31 @@
                 <thead>
                     <tr>
                         <th><b>Payment Id</b></th>
-                        <th><b>Date Paid</b></th>
-                        <th><b>Order Id</b></th>
                         <th><b>Payment Method</b></th>
-                        <th><b>Card Number</b></th>
-                        <th><b>CVV</b></th>
                         <th><b>Name On Card</b></th>
+                        <th><b>Card Number</b></th>
                         <th><b>Expiry Date</b></th>
+                        <th><b>CVV</b></th>
+                        <th><b>Order Id</b></th>
+                        <th><b>Amount Paid</b></th>
+                        <th><b>Date of the Order</b></th>
                     </tr>
-                </thead>
-                <tbody> 
-                    <%  if (rs != null) {
-                            for (int i = 0; i <= rs.size() - 1; i = i++) {
+                    <% if (!paymentList.isEmpty()) { 
+                        for(int i = 0; i <= (paymentList.size() / 9) - 1; i++) {
                     %>
-                <td><p> <%=rs.get(0 + i * 9)%> </p></td>
-                <td><p> <%=rs.get(1 + i * 9)%> </p></td>
-                <td><p> <%=rs.get(2 + i * 9)%> </p></td>
-                <td><p> <%=rs.get(3 + i * 9)%> </p></td>
-                <td><p> <%=rs.get(4 + i * 9)%>  </p></td>
-                <td><p> <%=rs.get(5 + i * 9)%>  </p></td>
-                <td><p> <%=rs.get(6 + i * 9)%>  </p></td>
-                <td><p> <%=rs.get(7 + i * 9)%> </p></td>
-                <td><p> <%=rs.get(8 + i * 9)%> </p></td>
-                </tr>
-                </tbody>
+                    <tr>
+                        <th><%=paymentList.get(9 * i + 0)%></th>
+                        <th><%=paymentList.get(9 * i + 1)%></th>
+                        <th><%=paymentList.get(9 * i + 2)%></th>
+                        <th><%=paymentList.get(9 * i + 3)%></th>
+                        <th><%=paymentList.get(9 * i + 4)%></th>
+                        <th><%=paymentList.get(9 * i + 5)%></th>
+                        <th><%=paymentList.get(9 * i + 6)%></th>
+                        <th><%=paymentList.get(9 * i + 7)%></th>
+                        <th><%=paymentList.get(9 * i + 8)%></th>
+                    </tr>
+                    <% } } %>
+                </thead>
             </table> 
         </form>
     </body>

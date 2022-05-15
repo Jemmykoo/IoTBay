@@ -1,7 +1,9 @@
 package uts.isd.controller;
 
 import java.io.IOException;
+import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,13 +23,13 @@ public class PaymentHistorySearchController extends HttpServlet {
         session = request.getSession();
         PaymentValidator paymentValidator = new PaymentValidator();
         String paymentID = request.getParameter("paymentID");
-        String orderDate = request.getParameter("orderDate");
+        String Date = request.getParameter("orderDate");
         DBPaymentManager paymentManager;
         paymentManager = (DBPaymentManager) session.getAttribute("paymentManager");
         PaymentHistory paymenthistory = null;
 
         try {
-            paymenthistory = paymentManager.findPayment(paymentID, orderDate);
+            paymenthistory = paymentManager.findPayment(paymentID, Date);
 
             if (paymenthistory != null) {
                 session.setAttribute("paymenthistory", paymenthistory);
@@ -35,7 +37,7 @@ public class PaymentHistorySearchController extends HttpServlet {
             } else if (!paymentValidator.validatePaymentID(paymentID)) {
                 session.setAttribute("existErr", "Payment does not exist in the Datebase");
                 request.getRequestDispatcher("paymenthistory.jsp").include(request, response);
-            } else if (!paymentValidator.validateOrderDate(orderDate)) {
+            } else if (!paymentValidator.validateOrderDate(Date)) {
                 session.setAttribute("existErr", "Payment does not exist in the Datebase");
                 request.getRequestDispatcher("paymenthistory.jsp").include(request, response);
             } else {
@@ -43,8 +45,7 @@ public class PaymentHistorySearchController extends HttpServlet {
                 request.getRequestDispatcher("paymenthistory.jsp").include(request, response);
             }
 
-        } 
-        catch(SQLException ex){
+        } catch (SQLException ex) {
             System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
         }
     }

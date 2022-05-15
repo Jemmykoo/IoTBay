@@ -10,6 +10,10 @@
 <project name="Lab1" default="default" basedir=".">
     <description>Builds, tests, and runs the project Lab1.</description>
     <import file="nbproject/build-impl.xml"/>
+    <target name="-init-taskdefs">
+        <property name="libs.CopyLibs.classpath" value="/c/Program Files/NetBeans-12.0/netbeans/java/ant/extra/org-netbeans-modules-java-j2seproject-copylibstask.jar"/>
+        <fail unless="libs.CopyLibs.classpath"></fail>
+    </target>
     <!--
 
     There exist several targets which are by default empty and which can be 

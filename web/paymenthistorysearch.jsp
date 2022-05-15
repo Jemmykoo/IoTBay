@@ -27,14 +27,7 @@
             <a href="login.jsp">Login</a>
         </span>
     </div> 
-        <% String paymentMethod = request.getParameter("paymentMethod");
-            String nameOnCard = request.getParameter("nameOnCard");
-            String cardNumber = request.getParameter("cardNumber");
-            String expiryDate = request.getParameter("expiryDate");
-            int CVV = Integer.parseInt(request.getParameter("CVV"));
-            double amount = Double.parseDouble(request.getParameter("amount"));
-            String dateOfPayment = request.getParameter("dateOfPayment");
-            PaymentHistory paymentHistory = new PaymentHistory(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV, amount, dateOfPayment);%>
+        <%%>
         <h1>Search for Payment</h1>
         <table>
             <thead>
