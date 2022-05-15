@@ -25,7 +25,11 @@
                 <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
                 <a href="PaymentHistoryController">Payment History</a>
-                <a href="userManagement.jsp">User Management</a>
+                <%if (loggedInUser != null) {
+                        if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
+                                    }
+                                }
+                %>
             </span>
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
@@ -45,8 +49,8 @@
                     <th>Type</th>
                     <th>Stock Quantity</th>
                     <th>Description</th>
-                        <%if (loggedInUser != null) {
-                            if (loggedInUser.getIsStaff() == true) { %><th>Edit</th>
+                    <%if (loggedInUser != null) {
+                                if (loggedInUser.getIsStaff() == true) { %><th>Edit</th>
                     <th>Delete</th> <%
                             }
                         }
