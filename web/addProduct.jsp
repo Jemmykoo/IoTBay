@@ -15,6 +15,13 @@
         <title>Add Products</title>
     </head>
     <body>
+        <%
+            String productNameErr = (String) session.getAttribute("productNameErr");
+            String unitPriceErr = (String) session.getAttribute("unitPriceErr");
+            String productTypeErr = (String) session.getAttribute("productTypeErr");
+            String quantityErr = (String) session.getAttribute("quantityErr");
+            String productDescriptionErr = (String) session.getAttribute("productDescriptionErr");
+        %>
         <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
@@ -30,11 +37,11 @@
         <div>
             <form method="post" action="AddProductServlet">
                 <table id="addProductsForm">
-                    <tr><td>Product Name:</td><td><input type="text" name="productName" /></td></tr>
-                    <tr><td>Product Unit Price:</td><td><input type="text" name="unitPrice"/></td></tr>
-                    <tr><td>Product Type:</td><td><input type="text" name="productType" /></td></tr>
-                    <tr><td>Product Quantity:</td><td><input type="text" name="quantity" /></td></tr>
-                    <tr><td>Product Description:</td><td><input type="text" name="productDescription" /></td></tr>
+                    <tr><td>Product Name:</td><td><input type="text" name="productName" placeholder="<%=(productNameErr != null ? productNameErr : "Enter Product Name")%>"/></td></tr>
+                    <tr><td>Product Unit Price:</td><td><input type="text" name="unitPrice" placeholder="<%=(unitPriceErr != null ? unitPriceErr : "Enter Unit Price")%>"/></td></tr>
+                    <tr><td>Product Type:</td><td><input type="text" name="productType" placeholder="<%=(productTypeErr != null ? productTypeErr : "Enter Product Type")%>"/></td></tr>
+                    <tr><td>Product Quantity:</td><td><input type="text" name="quantity" placeholder="<%=(quantityErr != null ? quantityErr : "Enter Product Quantity")%>" /></td></tr>
+                    <tr><td>Product Description:</td><td><input type="text" name="productDescription" placeholder="<%=(productDescriptionErr != null ? productDescriptionErr : "Enter Product Description")%>" /></td></tr>
                     <tr><td></td><td>
                             <input class="button" type="submit" value="Add Product"></td>
                     </tr>
