@@ -74,7 +74,7 @@ public class User {
         this.password = password;
     }
 
-    public boolean isIsStaff() {
+    public boolean getIsStaff() {
         return isStaff;
     }
 

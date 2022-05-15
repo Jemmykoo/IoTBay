@@ -25,7 +25,7 @@
             PaymentHistory paymentHistory = new PaymentHistory(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV, amount, dateOfPayment);
             ArrayList<String> rs = (ArrayList<String>) session.getAttribute("listOfPayments"); %>
         <h1>Payment History</h1>
-        <div id="bar">
+      <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>
@@ -33,6 +33,7 @@
                 <a href="login.jsp">Login</a>
                 <a href="payment.jsp">Payment</a>
                 <a href="paymentHistoryController">Payment History</a>
+                <a href="userManagement.jsp">User Management</a>
             </span>
         </div>
         <form class="smart-form">

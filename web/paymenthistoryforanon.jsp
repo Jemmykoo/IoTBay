@@ -13,7 +13,7 @@
         <title>Anonymous Users Payment History</title>
     </head>
     <body> 
-        <div id="bar">
+      <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>
@@ -21,6 +21,7 @@
                 <a href="login.jsp">Login</a>
                 <a href="payment.jsp">Payment</a>
                 <a href="paymentHistoryController">Payment History</a>
+                <a href="userManagement.jsp">User Management</a>
             </span>
         </div>
         <h1>Anonymous Users Payment History</h1>

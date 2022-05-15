@@ -23,6 +23,7 @@
                 <a href="login.jsp">Login</a>
                 <a href="payment.jsp">Payment</a>
                 <a href="paymentHistoryController">Payment History</a>
+                <a href="userManagement.jsp">User Management</a>
             </span>
         </div>
         <h1>Add a product to the catalogue</h1>

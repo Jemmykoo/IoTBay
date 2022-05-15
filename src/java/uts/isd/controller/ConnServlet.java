@@ -23,10 +23,15 @@ public class ConnServlet extends HttpServlet {
     private Connection conn;
 
     private ProductsDAO products;
-    
+
+    private UserManagementDAO users;
+
     private DBPaymentManager paymentManager;
 
     private ArrayList<Product> productsList;
+
+    private ArrayList<User> usersList;
+
 
     @Override //Create and instance of DBConnector for the deployment session
 
@@ -63,7 +68,10 @@ public class ConnServlet extends HttpServlet {
             manager = new DBManager(conn);
             products = new ProductsDAO(conn);
             paymentManager = new DBPaymentManager(conn);
+            users = new UserManagementDAO(conn);
+
             productsList = products.fetchProducts();
+            usersList = users.fetchUsers();
 
 
         } catch (SQLException ex) {
@@ -74,8 +82,11 @@ public class ConnServlet extends HttpServlet {
         //export the DB manager to the view-session (JSPs)
         session.setAttribute("manager", manager);
         session.setAttribute("products", products);
+        session.setAttribute("users", users);
+
         session.setAttribute("paymentManager", paymentManager);
         session.setAttribute("productsList", productsList);
+        session.setAttribute("usersList", usersList);
 
     }
 

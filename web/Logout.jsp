@@ -8,7 +8,7 @@
         <title>Logout</title>
     </head>
     <body>
-        <div id="bar">
+      <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>
@@ -16,6 +16,7 @@
                 <a href="login.jsp">Login</a>
                 <a href="payment.jsp">Payment</a>
                 <a href="paymentHistoryController">Payment History</a>
+                <a href="userManagement.jsp">User Management</a>
             </span>
         </div>
         <% session.invalidate();%>

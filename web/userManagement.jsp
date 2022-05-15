@@ -1,0 +1,69 @@
+<%-- 
+    Document   : products
+    Created on : 08/05/2022, 4:02:16 PM
+    Author     : Jemima
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="uts.isd.model.*" %>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="labcss.css" />
+        <title>User Management</title>
+    </head>
+    <body>
+        <div id="bar">
+            <span id="links">
+                <a href="index.jsp">Home</a>
+                <a href="products.jsp">Products</a>
+                <a href="register.jsp">Register</a>
+                <a href="login.jsp">Login</a>
+                <a href="payment.jsp">Payment</a>
+                <a href="paymentHistoryController">Payment History</a>
+                <a href="userManagement.jsp">User Management</a>
+
+            </span>
+        </div>
+        <%
+            ArrayList<User> users = (ArrayList<User>) session.getAttribute("usersList");
+        %>
+        <h1>List of Products</h1>
+        <div>
+            <table class="productsTable"> 
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone number</th>
+                    <th>Password</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                <%if (users != null) {
+                        for (User user : users) {
+                %>
+                <tr>
+                    <td><%=user.getId()%></td>
+                    <td><%=user.getFirstName()%></td>
+                    <td><%=user.getLastName()%></td>
+                    <td><%=user.getEmail()%></td>
+                    <td><%=user.getPhone()%></td>
+                    <td><%=user.getIsStaff()%></td>
+                    <td >
+                        EDIT USER BUTTON</td>
+                    <td>DELETE USER BUTTON
+                    </td>
+                </tr>
+                <%}
+                    }%>
+            </table>
+            <a href="addUser.jsp">Add User</a>
+        </div>
+        <div class="footer"><div></div></div>
+                <jsp:include page="/UsersServlet" flush="true"/>
+    </body>
+</html>
