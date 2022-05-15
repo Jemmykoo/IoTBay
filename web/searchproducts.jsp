@@ -19,15 +19,21 @@
             <span id="links">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
-                <a href="searchproducts.jsp">Search Products</a>
 
             </span>
         </div>
         <%
-            ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productsList");
+            ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("searchedProducts");
+            System.out.println("HELLO ONCE");
         %>
         <h1>List of Products</h1>
         <div>
+
+
+            <form action="SearchProductsServlet" method="post">
+                <p>Search for a product Name</p><input type="text" name="searchProductString" />
+                <button name="searchButton" type="submit" >Search</button>
+            </form>
             <table class="productsTable"> 
                 <tr>
                     <th>Product ID</th>
@@ -36,8 +42,7 @@
                     <th>Type</th>
                     <th>Stock Quantity</th>
                     <th>Description</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+
                 </tr>
                 <%if (products != null) {
                         for (Product product : products) {
@@ -49,24 +54,16 @@
                     <td><%=product.getProductType()%></td>
                     <td><%=product.getQuantity()%></td>
                     <td><%=product.getProductDescription()%></td>
-                    <td >
-                        <form action="editProduct.jsp" method="get">
-                            <button name="productId" type="submit" value="<%=product.getProductId()%>">Edit</button>
-                        </form></td>
-                    <td></form>
-                        <form method="post" action="DeleteProductServlet">  
-                            <button name="productId" type="submit" value="<%=product.getProductId()%>">Delete</button>
-                        </form>
-                    </td>
+
                 </tr>
                 <%}
                     }%>
 
             </table>
-            <a href="addProduct.jsp">Add Product</a>
+
 
         </div>
         <div class="footer"><div></div></div>
-                <jsp:include page="/ProductsServlet" flush="true"/>
+                <jsp:include page="/SearchProductsServlet" flush="true"/>
     </body>
 </html>

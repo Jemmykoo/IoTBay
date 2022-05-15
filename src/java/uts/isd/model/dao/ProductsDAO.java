@@ -18,6 +18,8 @@ public class ProductsDAO {
     private PreparedStatement readSt;
     private PreparedStatement updateSt;
     private PreparedStatement deleteSt;
+    private PreparedStatement searchSt;
+
     private String readQuery = "SELECT * FROM PRODUCTS WHERE PRODUCTID=?";
     private String updateQueryByID = "UPDATE PRODUCTS SET PRODUCTNAME=?,UNITPRICE=?,PRODUCTTYPE=?,QUANTITY=?,PRODUCTDESCRIPTION=? WHERE PRODUCTID=?";
     private String deleteQuery = "DELETE FROM PRODUCTS WHERE PRODUCTID= ?";
@@ -29,6 +31,8 @@ public class ProductsDAO {
         readSt = conn.prepareStatement(readQuery);
         updateSt = conn.prepareStatement(updateQueryByID);
         deleteSt = conn.prepareStatement(deleteQuery);
+        searchSt = conn.prepareStatement(readQuery);
+
     }
 
     public void addProduct(String productName, float unitPrice, String productType, int quantity, String productDescription) throws SQLException {
@@ -73,5 +77,21 @@ public class ProductsDAO {
         deleteSt.setString(1, Integer.toString(productID));
         int row = deleteSt.executeUpdate();
         System.out.println("row " + row + " deleted successfuly");
+    }
+
+    public ArrayList<Product> searchForSpecific(int productID) throws SQLException {
+        String fetch = "SELECT * FROM PRODUCTS WHERE PRODUCTID=?";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Product> products = new ArrayList();
+        while (rs.next()) {
+            int productId = Integer.parseInt(rs.getString(1));
+            String productName = rs.getString(2);
+            Float unitPrice = Float.parseFloat(rs.getString(3));
+            String productType = rs.getString(4);
+            int quantity = Integer.parseInt(rs.getString(5));
+            String productDescription = rs.getString(6);
+            products.add(new Product(productId, productName, unitPrice, productType, quantity, productDescription));
+        }
+        return products;
     }
 }

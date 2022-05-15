@@ -10,6 +10,10 @@
         <servlet-class>uts.isd.controller.AddProductServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>SearchProductsServlet</servlet-name>
+        <servlet-class>uts.isd.controller.SearchProductsServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>EditProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.EditProductServlet</servlet-class>
     </servlet>
@@ -24,6 +28,10 @@
     <servlet-mapping>
         <servlet-name>AddProductServlet</servlet-name>
         <url-pattern>/AddProductServlet</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>SearchProductsServlet</servlet-name>
+        <url-pattern>/SearchProductsServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditProductServlet</servlet-name>
