@@ -59,8 +59,8 @@ public class DBPaymentManager {
         return null;
     }
 
-    public void addPayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV) throws SQLException {
-        st.executeUpdate("INSERT INTO ISDUSER.PAYMENT(PAYMENTMETHOD, NAMEONCARD, CARDNUMBER, EXPIRYDATE, CVV)" + "VALUES ('" + paymentMethod + "', '" + nameOnCard + "', '" + cardNumber + "','" + expiryDate + "','" + CVV + "')");
+    public void addPayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV, int orderID) throws SQLException {
+        st.executeUpdate("INSERT INTO ISDUSER.PAYMENT(PAYMENTMETHOD, NAMEONCARD, CARDNUMBER, EXPIRYDATE, CVV, ORDERID)" + "VALUES ('" + paymentMethod + "', '" + nameOnCard + "', '" + cardNumber + "','" + expiryDate + "','" + CVV + "'," + orderID + ")");
     }
 
     public void updatePayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV) throws SQLException {

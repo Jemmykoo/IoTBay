@@ -96,8 +96,12 @@ public class TestCRUDPaymentDB {
             System.out.print("CVV: ");
 
             String CVV = in.nextLine();
+            
+            System.out.println("Order ID: ");
+            
+            int orderID = Integer.parseInt(in.nextLine());
 
-            db.addPayment(paymentMethod, nameOnName, cardNumber, expiryDate, CVV);
+            db.addPayment(paymentMethod, nameOnName, cardNumber, expiryDate, CVV, orderID);
 
             System.out.println("Payment with payment method " + paymentMethod + " has been added to the database.\n");
         } catch (SQLException ex) {
