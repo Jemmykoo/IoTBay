@@ -30,7 +30,23 @@ VALUES
 ('ron.weasley@student.uts.edu.au','Ron','Weasley','dog','0412666666',FALSE),
 ('hermione.granger@student.uts.edu.au','Hermione','Granger','otter','0412333444',FALSE),
 ('albus.dumbledore@uts.edu.au','Albus','Dumbledore','phoenix','1234567890',TRUE),
-('minerva.mcgonagall@uts.edu.au','Minerva','Mcgonagall','cat','041111111',TRUE);
+('minerva.mcgonagall@uts.edu.au','Minerva','Mcgonagall','cat','041111111',TRUE),
+('john.doe@student.uts.edu.au','john','doe','johnny','0498989898',FALSE),
+('salt.pepper@uts.edu.au','salt','pepper','whitespice','0400000000',TRUE),
+('Gavin.Du@uts.edu.au','Gavin','Du','SaltBar','041111113',TRUE),
+('David.Phung@uts.edu.au','David','Phung','Nekonatic','041111143',TRUE),
+('Jemima.Alice@student.uts.edu.au','Jemima','Alice','FEITLurker','0419890898',FALSE),
+('Net.Beans@student.uts.edu.au','Net','Bean','SucksLmao','0419670898',FALSE),
+('Asus.Strix@student.uts.edu.au','Asus','Strix','GTX1080TI','0411370898',FALSE),
+('Shiro.Doggo@student.uts.edu.au','Shiro','Doggo','WoofWoof','0413470898',FALSE),
+('Isabella.Pham@student.uts.edu.au','Isabella','Pham','WoofWoofIDKLol','0413490898',FALSE),
+('Garen.Kat@student.uts.edu.au','Garen','Kat','Shipped','0413430898',FALSE),
+('Zedd.Shen@student.uts.edu.au','Zedd','Shen','ShippedBros','0495430898',FALSE),
+('Lux.Ezreal@student.uts.edu.au','Lux','Ezreal','ReloShippedidk','0495432898',FALSE),
+('Demon.Slayer@student.uts.edu.au','Demon','Slayer','idkShonenAnimeLol','0495242898',FALSE),
+('Uni.Qlo@student.uts.edu.au','Uni','Qlo','01504084','0495240098',FALSE),
+('Alex.Wong@student.uts.edu.au','Alex','Wong','lmaoidkdoesitevenmatter','0452240198',FALSE),
+('Patrick.Ashley@student.uts.edu.au','Patrick','Ashley','whatsortapasswordwouldthismanmakelmaoidk','0452770198',FALSE);
 
 
 CREATE TABLE PRODUCTS(
@@ -49,7 +65,23 @@ VALUES
 ('Apple Watch',299.99,'wearable',20,'wearable watch and fitbit'),
 ('Amazon Alexa',666.66,'spyware',25,'home'),
 ('Google echo',123.45,'spyware',15,'home'),
-('Fancy doorbell',50.23,'home',12,'video camera doorbell');
+('Fancy doorbell',50.23,'home',12,'video camera doorbell'),
+('Iphone1',699.99,'mobile phones',10,'Apple Iphone'),
+('Iphone2',899.99,'mobile phones',22,'Apple Iphone'),
+('Iphone3',666.66,'mobile phones',20,'Apple Iphone'),
+('Iphone4',123.45,'mobile phones',12,'Apple Iphone'),
+('Iphone11',506.23,'mobile phones',1,'ring ring'),
+('Plane',699.99,'rc items',12,'UFO'),
+('RC Car',299.99,'rc items',20,'Broom Broom'),
+('RC Helicopter',666.66,'rc items',25,'wow it goes in circles'),
+('3d printer',123.45,'printer',15,'print print'),
+('fancy 3d printer',50.23,'printer',12,'fancy hp inkjet'),
+('Submarine',6999.99,'Weapons',12,'Reallly big requires big pool'),
+('Battery',299.99,'Tesla',20,'Small Battery'),
+('Big Battery',666.66,'Tesla',25,'Big Battery is big'),
+('House',12345678.45,'1 bedroom studio',15,'Its in sydney'),
+('Honestly run out of items here',50.23,'random stuff',12,'Use your imagination')
+;
 
 
 CREATE TABLE ORDERS(
