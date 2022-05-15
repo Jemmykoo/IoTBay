@@ -7,7 +7,7 @@ import javax.servlet.http.HttpSession;
 
 public class ProductValidator implements Serializable {
 
-    private String productStringPattern = "[A-Za-z]+";
+    private String productStringPattern = "[A-Za-z ]+";
     private String productFloatPattern = "^\\d+(\\.\\d+)?";
     private String productIntPattern = "^\\d+?";
 
