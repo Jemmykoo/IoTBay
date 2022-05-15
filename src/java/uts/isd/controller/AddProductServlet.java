@@ -16,7 +16,7 @@ import uts.isd.model.dao.*;
 
 /**
  *
- * @author George
+ * @author Jemima
  */
 public class AddProductServlet extends HttpServlet {
 
@@ -27,9 +27,9 @@ public class AddProductServlet extends HttpServlet {
         ProductValidator validator = new ProductValidator();
 
         String productName = request.getParameter("productName");
-        float unitPrice = Float.parseFloat(request.getParameter("unitPrice"));
+        String unitPrice = request.getParameter("unitPrice");
         String productType = request.getParameter("productType");
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        String quantity = request.getParameter("quantity");
         String productDescription = request.getParameter("productDescription");
 
         ProductsDAO products = (ProductsDAO) session.getAttribute("products");
@@ -37,16 +37,33 @@ public class AddProductServlet extends HttpServlet {
 
         ProductValidator.clear(session);
 
-        try {
-            products.addProduct(productName, unitPrice, productType, quantity, productDescription);
-            System.out.println("I JUST ADDED A PRODUCT");
-            ArrayList<Product> productsList = products.fetchProducts();
-            session.setAttribute("product", product);
-            session.setAttribute("productsList", productsList);
-            request.getRequestDispatcher("products.jsp").include(request, response);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(AddProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+        if (!validator.validateString(productName)) {
+            session.setAttribute("productNameErr", "Error: Name format is incorrect");
+            request.getRequestDispatcher("addProduct.jsp").include(request, response);
+        } else if (!validator.validateFloat(unitPrice)) {
+            session.setAttribute("unitPriceErr", "Error: Enter Unit Price");
+            request.getRequestDispatcher("addProduct.jsp").include(request, response);
+        } else if (!validator.validateString(productType)) {
+            session.setAttribute("productTypeErr", "Error: Enter Product Type");
+            request.getRequestDispatcher("addProduct.jsp").include(request, response);
+        } else if (!validator.validateInt(quantity)) {
+            session.setAttribute("quantityErr", "Error: Enter Quantity");
+            request.getRequestDispatcher("addProduct.jsp").include(request, response);
+        } else if (!validator.validateString(productDescription)) {
+            session.setAttribute("productDescriptionErr", "Error: Enter Description");
+            request.getRequestDispatcher("addProduct.jsp").include(request, response);
+        } else {
+            ProductValidator.clear(session);
+            try {
+                products.addProduct(productName, Float.parseFloat(unitPrice), productType, Integer.parseInt(quantity), productDescription);
+                System.out.println("Product Just Added");
+                ArrayList<Product> productsList = products.fetchProducts();
+                session.setAttribute("product", product);
+                session.setAttribute("productsList", productsList);
+                request.getRequestDispatcher("products.jsp").include(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(AddProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

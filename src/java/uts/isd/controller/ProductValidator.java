@@ -7,8 +7,9 @@ import javax.servlet.http.HttpSession;
 
 public class ProductValidator implements Serializable {
 
-    private String productNamePattern = "([A-Z][a-z]+[\\s])+[A-Z][a-z]*";
-    private String unitPricePattern = "[0-9]";
+    private String productStringPattern = "[A-Za-z]+";
+    private String productFloatPattern = "^\\d+(\\.\\d+)?";
+    private String productIntPattern = "^\\d+?";
 
     public ProductValidator() {
     }
@@ -18,21 +19,28 @@ public class ProductValidator implements Serializable {
         Matcher match = regEx.matcher(input);
 
         return match.matches();
+    }
+    public boolean checkEmpty(String word) {
+
+        return word.isEmpty();
 
     }
+    public boolean validateString(String word) {
+        return validate(productStringPattern, word);
+    }
+    public boolean validateFloat(String numbers) {
 
-    public boolean checkEmpty(String name) {
-
-        return name.isEmpty();
-
+        return validate(productFloatPattern, numbers);
     }
 
-    public boolean validateName(String name) {
-
-        return validate(productNamePattern, name);
-
+    public boolean validateInt(String numbers) {
+        return validate(productIntPattern, numbers);
     }
-
     public static void clear(HttpSession session) {
+        session.setAttribute("productNameErr", "Enter Product Name");
+        session.setAttribute("unitPriceErr", "Enter Unit Price");
+        session.setAttribute("productTypeErr", "Enter Product Type");
+        session.setAttribute("quantityErr", "Enter Product Quantity");
+        session.setAttribute("productDescriptionErr", "Enter Product Description");
     }
 }
