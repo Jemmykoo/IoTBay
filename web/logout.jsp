@@ -8,7 +8,7 @@
         <title>Logout</title>
     </head>
     <body>
-      <div id="bar">
+        <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
@@ -21,7 +21,10 @@
                 <a href="login.jsp">Login</a>
             </span>
         </div>
-        <% session.invalidate();%>
+        <% session.invalidate();
+            response.sendRedirect("index.jsp");
+
+        %>
         <h1>You Have Logged out. Thank you, have a good day!</h1>
         <div class="footer"><div></div></div>
     </body>

@@ -15,6 +15,10 @@
         <title>Add Products</title>
     </head>
     <body>
+        <%
+            ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productsList");
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
+        %>
         <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
@@ -26,17 +30,13 @@
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
+                <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                    }
+                %>
             </span>
         </div>
-        <%
-            ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productsList");
-            User loggedInUser = (User) session.getAttribute("LoggedInUser");
-        %>
         <h1>List of Products</h1>
         <div>
-            <%if (loggedInUser != null) {%><p><%=loggedInUser.getFirstName()%> </p> <%
-                } else {%><span> Hello </span> <%}
-            %>
             <table class="productsTable"> 
                 <tr>
                     <th>Product ID</th>
@@ -45,8 +45,10 @@
                     <th>Type</th>
                     <th>Stock Quantity</th>
                     <th>Description</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <%if (loggedInUser != null) {%><th>Edit</th>
+                    <th>Delete</th> <%
+                        }
+                        %>
                 </tr>
                 <%if (products != null) {
                         for (Product product : products) {
@@ -58,7 +60,7 @@
                     <td><%=product.getProductType()%></td>
                     <td><%=product.getQuantity()%></td>
                     <td><%=product.getProductDescription()%></td>
-                    <td >
+                    <%if (loggedInUser != null) {%> <td >
                         <form action="editProduct.jsp" method="get">
                             <button name="productId" type="submit" value="<%=product.getProductId()%>">Edit</button>
                         </form></td>
@@ -66,7 +68,10 @@
                         <form method="post" action="DeleteProductServlet">  
                             <button name="productId" type="submit" value="<%=product.getProductId()%>">Delete</button>
                         </form>
-                    </td>
+                    </td> <%
+                        }
+                    %>
+
                 </tr>
                 <%}
                     }%>
