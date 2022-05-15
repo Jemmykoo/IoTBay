@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.Connection;
+import uts.isd.model.Payment;
 import uts.isd.model.dao.DBConnector;
 
 /* 
@@ -21,34 +22,53 @@ public class DBPaymentManager {
         st = conn.createStatement();
     }
 
+    public ArrayList<Payment> fetchPayment() throws SQLException {
+        String fetch = "SELECT * FROM PAYMENT";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Payment> payment = new ArrayList();
+
+        while (rs.next()) {
+            int paymentID = Integer.parseInt(rs.getString(1));
+            String paymentMethod = rs.getString(2);
+            String nameOnCard = rs.getString(3);
+            String cardNumber = rs.getString(4);
+            String expiryDate = rs.getString(5);
+            String CVV = rs.getString(6);
+            int orderID = Integer.parseInt(rs.getString(7));
+            payment.add(new Payment(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV));
+        }
+        return payment;
+    }
+    
     public PaymentHistory findPayment(String paymentID, String orderDate) throws SQLException {
-        String fetch = "select * from IOTBAYUSER.Payment where PAYMENTID = '" + paymentID + "' and orderDate = '" + orderDate + "'";
+        String fetch = "select * from ISDUSER.Payment where PAYMENTID = '" + paymentID + "' and orderDate = '" + orderDate + "'";
         ResultSet rs = st.executeQuery(fetch);
         while (rs.next()) {
             int pID = rs.getInt(1);
-            String datePaid = rs.getString(9);
+            String datePaid = rs.getString(7);
             if (paymentID.equals(pID) && datePaid.equals(orderDate)) {
-                String paymentMethod = rs.getString(3);
-                String nameOnCard = rs.getString(4);
-                String cardNumber = rs.getString(5);
-                Date expiryDate = rs.getDate(6);
-                String CVV = rs.getString(7);
+                String paymentMethod = rs.getString(2);
+                String nameOnCard = rs.getString(3);
+                String cardNumber = rs.getString(4);
+                String expiryDate = rs.getString(5);
+                String CVV = rs.getString(6);
                 double orderPrice = rs.getDouble(8);
+                
             }
         }
         return null;
     }
 
-    public void addPayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV, int orderID) throws SQLException {
-        st.executeUpdate("INSERT INTO IOTBAYUSER.PAYMENT(PAYMENTMETHOD, NAMEONCARD, CARDNUMBER, EXPIRYDATE, CVV, ORDERID)" + "VALUES ('" + paymentMethod + "', '" + nameOnCard + "', '" + cardNumber + "','" + expiryDate + "','" + CVV + "'," + orderID + ")");
+    public void addPayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV) throws SQLException {
+        st.executeUpdate("INSERT INTO ISDUSER.PAYMENT(PAYMENTMETHOD, NAMEONCARD, CARDNUMBER, EXPIRYDATE, CVV)" + "VALUES ('" + paymentMethod + "', '" + nameOnCard + "', '" + cardNumber + "','" + expiryDate + "','" + CVV + "')");
     }
 
     public void updatePayment(String paymentMethod, String nameOnCard, String cardNumber, String expiryDate, String CVV) throws SQLException {
-        st.executeUpdate("UPDATE IOTBAYUSER.Payment SET PAYMENTMETHOD = '" + paymentMethod + "',NAMEONCARD = '" + nameOnCard + "', EXPIRYDATE = '" + cardNumber + "', CVV = '" + expiryDate + "','" + CVV + "')");
+        st.executeUpdate("UPDATE ISDUSER.Payment SET PAYMENTMETHOD = '" + paymentMethod + "',NAMEONCARD = '" + nameOnCard + "', EXPIRYDATE = '" + cardNumber + "', CVV = '" + expiryDate + "','" + CVV + "')");
     }
 
     public void deletePayment(int paymentID) throws SQLException {
-        st.executeUpdate("DELETE FROM IOTBAYUSER.Payment WHERE PAYMENTID = " + paymentID + "");
+        st.executeUpdate("DELETE FROM ISDUSER.Payment WHERE PAYMENTID = " + paymentID + "");
     }
 
     public List<PaymentHistory> listPaymentHistory() throws SQLException {
@@ -80,7 +100,7 @@ public class DBPaymentManager {
     }
     public int getID(String email, String password) throws SQLException {
        int ID;
-       String fetch = "select ID FROM IOTBAYUSER.USERS where EMAIL = '" + email + "' and PASSWORD ='" + password + "'" ;
+       String fetch = "select ID FROM ISDUSER.USERS where EMAIL = '" + email + "' and PASSWORD ='" + password + "'" ;
        ResultSet rs = st.executeQuery(fetch);
        if (rs.next()) {
            ID = rs.getInt(1);
@@ -91,7 +111,7 @@ public class DBPaymentManager {
     } 
     public int getOrderID() throws SQLException {
        int orderID;
-       String fetch = "select max(ORDERID) FROM IOTBAYUSER.ORDERS" ;
+       String fetch = "select max(ORDERID) FROM ISDUSER.ORDERS" ;
        ResultSet rs = st.executeQuery(fetch);
        if (rs.next()) {
             orderID = rs.getInt(1);
@@ -102,7 +122,7 @@ public class DBPaymentManager {
     }
     public int getPaymentID() throws SQLException {
        int paymentID;
-       String fetch = "select MAX(PAYMENTID) FROM IOTBAYUSER.PAYMENT" ;
+       String fetch = "select MAX(PAYMENTID) FROM ISDUSER.PAYMENT" ;
        ResultSet rs = st.executeQuery(fetch);
        if (rs.next()) {
             paymentID = rs.getInt(1);
