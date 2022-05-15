@@ -13,24 +13,24 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="labcss.css"/>
         <title>Payment Page</title>
-        <% String cardNumberErr = (String) session.getAttribute("cardNumberErr");
+        <% String cardNumberErr = (String) session.getAttribute("cardNumberErr"); 
         %>
     </head>
     <body>
         <%
-            User loggedInUser = (User) session.getAttribute("LoggedInUser");
-        %>
-        <div id="bar">
+        User loggedInUser = (User) session.getAttribute("LoggedInUser");
+    %>
+       <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
                 <a href="PaymentHistoryController">Payment History</a>
                 <%if (loggedInUser != null) {
-                        if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
-                        }
+                    if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
                     }
-                %>
+                }
+            %>
             </span>
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>

@@ -53,7 +53,7 @@ public class PaymentController extends HttpServlet {
             session.setAttribute("payment", payment);
             Integer orderID = manager.getOrderID();
             session.setAttribute("orderId", orderID);
-            manager.addPayment(paymentMethod, cardNumber, CVV, nameOnCard, expiryDate, orderID);
+            manager.addPayment(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV, orderID);
             Integer paymentID = manager.getPaymentID();
             session.setAttribute("paymentID", paymentID);
             request.getRequestDispatcher("paymentdetails.jsp").include(request, response);
