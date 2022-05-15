@@ -23,36 +23,50 @@ public class EditProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("I AM TRYING TO UPDATE A PRODUCT" );
 
         HttpSession session = request.getSession();
         ProductValidator validator = new ProductValidator();
-        System.out.println("FAILING1");
+
         System.out.println("I AM TRYING TO UPDATE A PRODUCT" + request.getParameterMap() + " NOOOO");
 
         int productId = Integer.parseInt(request.getParameter("productId"));
         String productName = request.getParameter("productName");
-        float unitPrice = Float.parseFloat(request.getParameter("unitPrice"));
+        String unitPrice = request.getParameter("unitPrice");
         String productType = request.getParameter("productType");
-        int quantity = Integer.parseInt(request.getParameter("quantity"));
+        String quantity = request.getParameter("quantity");
         String productDescription = request.getParameter("productDescription");
-
-        System.out.println("FAILING");
 
         ProductsDAO products = (ProductsDAO) session.getAttribute("products");
         Product product = null;
 
         ProductValidator.clear(session);
+        if (!validator.validateString(productName)) {
+            session.setAttribute("productNameErr", "Error: Name format is incorrect");
+            request.getRequestDispatcher("editProduct.jsp").include(request, response);
+        } else if (!validator.validateFloat(unitPrice)) {
+            session.setAttribute("unitPriceErr", "Error: Enter Unit Price");
+            request.getRequestDispatcher("editProduct.jsp").include(request, response);
+        } else if (!validator.validateString(productType)) {
+            session.setAttribute("productTypeErr", "Error: Enter Product Type");
+            request.getRequestDispatcher("editProduct.jsp").include(request, response);
+        } else if (!validator.validateInt(quantity)) {
+            session.setAttribute("quantityErr", "Error: Enter Quantity");
+            request.getRequestDispatcher("editProduct.jsp").include(request, response);
+        } else if (!validator.validateString(productDescription)) {
+            session.setAttribute("productDescriptionErr", "Error: Enter Description");
+            request.getRequestDispatcher("editProduct.jsp").include(request, response);
+        } else {
+            ProductValidator.clear(session);
+            try {
+                products.updateProductByID(productId, productName, Float.parseFloat(unitPrice), productType, Integer.parseInt(quantity), productDescription);
+                ArrayList<Product> productsList = products.fetchProducts();
+                session.setAttribute("product", product);
+                session.setAttribute("productsList", productsList);
+                request.getRequestDispatcher("products.jsp").include(request, response);
 
-        try {
-            products.updateProductByID(productId, productName, unitPrice, productType, quantity, productDescription);
-            ArrayList<Product> productsList = products.fetchProducts();
-            session.setAttribute("product", product);
-            session.setAttribute("productsList", productsList);
-            request.getRequestDispatcher("products.jsp").include(request, response);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(EditProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(EditProductServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 }

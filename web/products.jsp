@@ -15,16 +15,30 @@
         <title>Add Products</title>
     </head>
     <body>
-        <div id="bar">
-            <span id="links">
-                <a href="register.jsp">Register</a>
-                <a href="login.jsp">Login</a>
-
-            </span>
-        </div>
         <%
             ArrayList<Product> products = (ArrayList<Product>) session.getAttribute("productsList");
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
         %>
+        <div id="bar">
+            <span id="links">
+                <a href="index.jsp">Home</a>
+                <a href="products.jsp">Products</a>                
+                <a href="payment.jsp">Payment</a>
+                <a href="PaymentHistoryController">Payment History</a>
+                <%if (loggedInUser != null) {
+                        if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
+                                    }
+                                }
+                %>
+            </span>
+            <span id="loginlinks">
+                <a href="register.jsp">Register</a>
+                <a href="login.jsp">Login</a>
+                <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                    }
+                %>
+            </span>
+        </div>
         <h1>List of Products</h1>
         <div>
             <table class="productsTable"> 
@@ -35,8 +49,12 @@
                     <th>Type</th>
                     <th>Stock Quantity</th>
                     <th>Description</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <%if (loggedInUser != null) {
+                                if (loggedInUser.getIsStaff() == true) { %><th>Edit</th>
+                    <th>Delete</th> <%
+                            }
+                        }
+                        %>
                 </tr>
                 <%if (products != null) {
                         for (Product product : products) {
@@ -48,7 +66,8 @@
                     <td><%=product.getProductType()%></td>
                     <td><%=product.getQuantity()%></td>
                     <td><%=product.getProductDescription()%></td>
-                    <td >
+                    <%if (loggedInUser != null) {
+                            if (loggedInUser.getIsStaff() == true) {%> <td >
                         <form action="editProduct.jsp" method="get">
                             <button name="productId" type="submit" value="<%=product.getProductId()%>">Edit</button>
                         </form></td>
@@ -56,7 +75,11 @@
                         <form method="post" action="DeleteProductServlet">  
                             <button name="productId" type="submit" value="<%=product.getProductId()%>">Delete</button>
                         </form>
-                    </td>
+                    </td> <%
+                            }
+                        }
+                    %>
+
                 </tr>
                 <%}
                     }%>
@@ -66,6 +89,5 @@
 
         </div>
         <div class="footer"><div></div></div>
-                <jsp:include page="/ProductsServlet" flush="true"/>
     </body>
 </html>

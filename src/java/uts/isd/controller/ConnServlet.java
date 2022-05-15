@@ -24,13 +24,20 @@ public class ConnServlet extends HttpServlet {
 
     private ProductsDAO products;
 
+    private UserManagementDAO users;
+
+    private DBPaymentManager paymentManager;
+
     private ArrayList<Product> productsList;
+
+    private ArrayList<User> usersList;
+
 
     @Override //Create and instance of DBConnector for the deployment session
 
     public void init() {
 
-        System.out.println("HELLO1");
+        System.out.println("Initializing ConnServlet");
         try {
 
             db = new DBConnector();
@@ -48,7 +55,7 @@ public class ConnServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("HELLO2");
+        System.out.println("First DoGet");
 
         response.setContentType("text/html;charset=UTF-8");
 
@@ -60,7 +67,12 @@ public class ConnServlet extends HttpServlet {
 
             manager = new DBManager(conn);
             products = new ProductsDAO(conn);
+            paymentManager = new DBPaymentManager(conn);
+            users = new UserManagementDAO(conn);
+
             productsList = products.fetchProducts();
+            usersList = users.fetchUsers();
+
 
         } catch (SQLException ex) {
 
@@ -70,7 +82,11 @@ public class ConnServlet extends HttpServlet {
         //export the DB manager to the view-session (JSPs)
         session.setAttribute("manager", manager);
         session.setAttribute("products", products);
+        session.setAttribute("users", users);
+
+        session.setAttribute("paymentManager", paymentManager);
         session.setAttribute("productsList", productsList);
+        session.setAttribute("usersList", usersList);
 
     }
 

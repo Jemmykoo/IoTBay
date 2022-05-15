@@ -1,18 +1,18 @@
 <%-- 
-    Document   : register
-    Created on : 15 Mar. 2022, 8:27:38 pm
-    Author     : jemima
+    Document   : addProduct
+    Created on : 14/05/2022, 6:03:39 PM
+    Author     : Alice
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="uts.isd.model.*" %>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="labcss.css"/>
-        <title>Registration Page</title>
+        <link rel="stylesheet" href="labcss.css" />
+        <title>Add User</title>
     </head>
     <body>
         <%
@@ -26,19 +26,20 @@
                 <a href="PaymentHistoryController">Payment History</a>
                 <%if (loggedInUser != null) {
                         if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
-                        }
-                    }
-                %>            </span>
+                }
+            }
+                %>
+            </span>
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
-                <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                 <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
                     }
                 %>
             </span>
         </div>
-        <h1>Registration Page</h1>
-        <div class="registerform">
+        <h1>Add a User to the database </h1>
+        <div>
             <form method="post" action="AddUserServlet">
                 <table id="addUserForm">
                     <tr><td>First Name:</td><td><input type="text" name="firstName" /></td></tr>
@@ -46,14 +47,17 @@
                     <tr><td>Email:</td><td><input type="text" name="email" /></td></tr>
                     <tr><td>Password:</td><td><input type="text" name="password" /></td></tr>
                     <tr><td>Phone Number:</td><td><input type="text" name="phoneNo" /></td></tr>
-                    <input type="hidden" value=false /></td></tr> 
+                    <tr>
+                        <td>User Level:</td><td><input type="radio" name="isStaff" value="false" checked />Customer</td>
+                        <td><input type="radio" name="isStaff" value="false"/>Staff</td>
+                    </tr> 
                     <tr><td></td><td>
                             <input class="button" type="submit" value="Add User"></td>
                     </tr>
                 </table>
-            </form>    
+            </form>
         </div>
-        <div class="footer"><div> </div>
-        </div>
+        <div class="footer"><div></div></div>
+
     </body>
 </html>

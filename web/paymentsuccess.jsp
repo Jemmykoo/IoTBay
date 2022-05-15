@@ -1,22 +1,22 @@
 <%-- 
-    Document   : index
-    Created on : 01/05/2022, 9:52:25 PM
-    Author     : Jemima
+    Document   : paymentsuccess
+    Created on : 15/05/2022, 7:43:29 AM
+    Author     : Patrick
 --%>
-
+<%@page import="uts.isd.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="uts.isd.model.*" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="labcss.css"/>
-        <title>Welcome Page</title>
+        <link rel="stylesheet" href="labcss.css" />
+        <title>Payment Successful</title>
     </head>
     <body>
         <%
             User loggedInUser = (User) session.getAttribute("LoggedInUser");
         %>
+        <h1>Payment Successful</h1>
         <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
@@ -37,8 +37,7 @@
                 %>
             </span>
         </div>
-        <h1>Welcome to the IoTBay!</h1>
-        <div class="footer"><div></div></div>
-                <jsp:include page="ConnServlet" flush="true"/>
+        <h2>Payment Complete.</h2>
+        <p>You can return back to the main page <a href="index.jsp">here</a>
     </body>
 </html>

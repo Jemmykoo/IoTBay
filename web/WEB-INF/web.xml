@@ -6,24 +6,100 @@
         <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet>
+        <servlet-name>Validator</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentValidator</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentController</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentHistorySearchController</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentHistorySearchController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentDelete</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentDelete</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentEdit</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentEdit</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentUpdate</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentUpdate</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PaymentHistoryController</servlet-name>
+        <servlet-class>uts.isd.controller.PaymentHistoryController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>AddProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.AddProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddUserServlet</servlet-name>
+        <servlet-class>uts.isd.controller.AddUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>uts.isd.controller.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.EditProductServlet</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>DeleteProductServlet</servlet-name>
         <servlet-class>uts.isd.controller.DeleteProductServlet</servlet-class>
     </servlet>
-        <servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeleteUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>Validator</servlet-name>
+        <url-pattern>/Validator</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentController</servlet-name>
+        <url-pattern>/PaymentController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentHistorySearchController</servlet-name>
+        <url-pattern>/PaymentHistorySearchController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentDelete</servlet-name>
+        <url-pattern>/PaymentDelete</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentEdit</servlet-name>
+        <url-pattern>/PaymentEdit</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentUpdate</servlet-name>
+        <url-pattern>/PaymentUpdate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PaymentHistoryController</servlet-name>
+        <url-pattern>/PaymentHistoryController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>AddProductServlet</servlet-name>
         <url-pattern>/AddProductServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddUserServlet</servlet-name>
+        <url-pattern>/AddUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/LoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>EditProductServlet</servlet-name>
@@ -32,8 +108,12 @@
      <servlet-mapping>
         <servlet-name>DeleteProductServlet</servlet-name>
         <url-pattern>/DeleteProductServlet</url-pattern>
-    </servlet-mapping>
-        <session-config>
+    </servlet-mapping>  
+     <servlet-mapping>
+        <servlet-name>DeleteUserServlet</servlet-name>
+        <url-pattern>/DeleteUserServlet</url-pattern>
+    </servlet-mapping>  
+    <session-config>
         <session-timeout>
             30
         </session-timeout>

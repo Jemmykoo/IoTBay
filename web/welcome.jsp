@@ -1,17 +1,13 @@
-<%-- 
-    Document   : index
-    Created on : 01/05/2022, 9:52:25 PM
-    Author     : Jemima
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%-- Document : welcome.jsp Created on : 29 Mar. 2022, 6:55:25 pm Author :
+jemima --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.isd.model.*" %>
+
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="labcss.css"/>
-        <title>Welcome Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" href="labcss.css" />
+        <title>Welcome</title>
     </head>
     <body>
         <%
@@ -25,10 +21,9 @@
                 <a href="PaymentHistoryController">Payment History</a>
                 <%if (loggedInUser != null) {
                         if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
-                        }
-                    }
-                %>
-            </span>
+                                               }
+                                           }
+                %>            </span>
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
@@ -37,8 +32,16 @@
                 %>
             </span>
         </div>
-        <h1>Welcome to the IoTBay!</h1>
+        <% String firstname = request.getParameter("firstname");
+            String lastname
+                    = request.getParameter("lastname");
+            String email
+                    = request.getParameter("email");
+            String phone = request.getParameter("phone");
+            String password = request.getParameter("password");%>
+        <h1>Welcome! <%= firstname%> you are now registered</h1>
+        <% User user = new User(firstname, lastname, email, phone, password);
+            session.setAttribute(email, user);%>
         <div class="footer"><div></div></div>
-                <jsp:include page="ConnServlet" flush="true"/>
     </body>
 </html>
