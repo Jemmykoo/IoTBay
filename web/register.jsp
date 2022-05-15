@@ -13,7 +13,7 @@
         <title>Registration Page</title>
     </head>
     <body>
-      <div id="bar">
+        <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
@@ -28,17 +28,19 @@
         </div>
         <h1>Registration Page</h1>
         <div class="registerform">
-            <form id="form" method="POST" action="welcome.jsp">
-                <table>
-                    <tr><td>First Name:</td><td><input type="text" id="firstname" name="firstname"></td></tr>
-                    <tr><td>Last Name:</td><td><input type="text" id="lastname" name="lastname"></td></tr>
-                    <tr><td>Email:</td><td><input type="text" id="email" name="email"></td></tr>
-                    <tr><td>Phone:</td><td><input type="text" id="phone" name="phone"></td></tr>
-                    <tr><td><span></span></td></tr>
-                    <tr><td>Password:</td><td><input type="password" id="password" name="password"></td></tr>
-                    <tr><td><input class="button" type="submit" value="Sign up"></input></td></tr>
-                </table>  
-            </form>     
+            <form method="post" action="AddUserServlet">
+                <table id="addUserForm">
+                    <tr><td>First Name:</td><td><input type="text" name="firstName" /></td></tr>
+                    <tr><td>Last Name:</td><td><input type="text" name="lastName"/></td></tr>
+                    <tr><td>Email:</td><td><input type="text" name="email" /></td></tr>
+                    <tr><td>Password:</td><td><input type="text" name="password" /></td></tr>
+                    <tr><td>Phone Number:</td><td><input type="text" name="phoneNo" /></td></tr>
+                   <input type="hidden" value=false /></td></tr> 
+                    <tr><td></td><td>
+                            <input class="button" type="submit" value="Add User"></td>
+                    </tr>
+                </table>
+            </form>    
         </div>
         <div class="footer"><div> </div>
         </div>

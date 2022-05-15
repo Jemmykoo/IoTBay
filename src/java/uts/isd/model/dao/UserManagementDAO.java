@@ -29,8 +29,8 @@ public class UserManagementDAO {
 
             while (rs.next()) {
                 int ID = Integer.parseInt(rs.getString(1));
-                String firstName = rs.getString(4);
-                String lastName = rs.getString(3);
+                String firstName = rs.getString(3);
+                String lastName = rs.getString(4);
                 String phoneNo = rs.getString(6);
                 boolean isStaff = Boolean.parseBoolean(rs.getString(7));
                 System.out.println(ID + " " + firstName + " " + lastName + " " + phoneNo + " " + isStaff);
@@ -51,12 +51,12 @@ public class UserManagementDAO {
         while (rs.next()) {
             int ID = Integer.parseInt(rs.getString(1));
             String email = rs.getString(2);
-            String firstName = rs.getString(4);
-            String lastName = rs.getString(3);
+            String firstName = rs.getString(3);
+            String lastName = rs.getString(4);
             String password = rs.getString(5);
             String phoneNo = rs.getString(6);
             boolean isStaff = Boolean.parseBoolean(rs.getString(7));
-            users.add(new User(ID, email, firstName, lastName, password, phoneNo, isStaff));
+            users.add(new User(ID, firstName, lastName,email,  phoneNo, password,isStaff));
         }
         return users;
     }

@@ -40,7 +40,7 @@
                     <th>Last Name</th>
                     <th>Email</th>
                     <th>Phone number</th>
-                    <th>Password</th>
+                    <th>Is Staff</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
