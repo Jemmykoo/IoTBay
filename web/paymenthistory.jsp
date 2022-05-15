@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="uts.isd.model.PaymentHistory"%>
+<%@page import="uts.isd.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,7 +15,9 @@
         <title>Payment History</title>
     </head>
     <body>
-        <% String paymentMethod = request.getParameter("paymentMethod");
+        <%
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
+            String paymentMethod = request.getParameter("paymentMethod");
             String nameOnCard = request.getParameter("nameOnCard");
             String cardNumber = request.getParameter("cardNumber");
             String expiryDate = request.getParameter("expiryDate");
@@ -23,19 +25,26 @@
             double amount = Double.parseDouble(request.getParameter("amount"));
             String dateOfPayment = request.getParameter("dateOfPayment");
             PaymentHistory paymentHistory = new PaymentHistory(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV, amount, dateOfPayment);
-            ArrayList<String> rs = (ArrayList<String>) session.getAttribute("listOfPayments"); %>
+            ArrayList<String> rs = (ArrayList<String>) session.getAttribute("listOfPayments");
+        %>
         <h1>Payment History</h1>
-      <div id="bar">
+        <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
                 <a href="PaymentHistoryController">Payment History</a>
-                <a href="userManagement.jsp">User Management</a>
-            </span>
+                <%if (loggedInUser != null) {
+                        if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
+                                                }
+                                            }
+                %>            </span>
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
+                <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                    }
+                %>
             </span>
         </div>
         <form class="smart-form">

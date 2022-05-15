@@ -2,7 +2,7 @@
     Document   : PaymentDetails
     Created on : 12/05/2022, 3:04:15 AM
     Author     : Patrick
---%><%@page import="uts.isd.model.Payment"%>
+--%><%@page import="uts.isd.model.*"%>
 
 <html>
     <head>
@@ -11,24 +11,33 @@
         <title>Payment Details</title>
     </head>
     <body>
-        <%  Integer paymentID = (Integer) session.getAttribute("paymentID");
+        <%
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
+
+            Integer paymentID = (Integer) session.getAttribute("paymentID");
             String paymentMethod = request.getParameter("paymentMethod");
             String nameOnCard = request.getParameter("nameOnCard");
             String cardNumber = request.getParameter("cardNumber");
             String expiryDate = request.getParameter("expiryDate");
             String CVV = request.getParameter("CVV");
             Payment payment = new Payment(paymentMethod, nameOnCard, cardNumber, expiryDate, CVV);%>
-      <div id="bar">
+        <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
                 <a href="PaymentHistoryController">Payment History</a>
-                <a href="userManagement.jsp">User Management</a>
-            </span>
+                <%if (loggedInUser != null) {
+                        if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
+                        }
+                    }
+                %>            </span>
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
+                <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                    }
+                %>
             </span>
         </div>
         <div>

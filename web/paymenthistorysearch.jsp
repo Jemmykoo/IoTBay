@@ -4,8 +4,7 @@
     Author     : Patrick
 --%>
 
-<%@page import="uts.isd.model.Payment"%>
-<%@page import="uts.isd.model.PaymentHistory"%>
+<%@page import="uts.isd.model.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -14,19 +13,29 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body><div id="bar">
-        <span id="links">
-            <a href="index.jsp">Home</a>
-            <a href="products.jsp">Products</a>                
-            <a href="payment.jsp">Payment</a>
-            <a href="PaymentHistoryController">Payment History</a>
-            <a href="userManagement.jsp">User Management</a>
-        </span>
-        <span id="loginlinks">
-            <a href="register.jsp">Register</a>
-            <a href="login.jsp">Login</a>
-        </span>
-    </div> 
+    <body>
+        <%
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
+        %>
+        <div id="bar">
+            <span id="links">
+                <a href="index.jsp">Home</a>
+                <a href="products.jsp">Products</a>                
+                <a href="payment.jsp">Payment</a>
+                <a href="PaymentHistoryController">Payment History</a>
+                <%if (loggedInUser != null) {
+                        if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
+                        }
+                    }
+                %>        </span>
+            <span id="loginlinks">
+                <a href="register.jsp">Register</a>
+                <a href="login.jsp">Login</a>
+                <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                    }
+                %>
+            </span>
+        </div> 
         <% String paymentMethod = request.getParameter("paymentMethod");
             String nameOnCard = request.getParameter("nameOnCard");
             String cardNumber = request.getParameter("cardNumber");

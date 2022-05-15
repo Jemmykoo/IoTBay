@@ -15,17 +15,27 @@
         <title>Add User</title>
     </head>
     <body>
+        <%
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
+        %>
         <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
                 <a href="PaymentHistoryController">Payment History</a>
-                <a href="userManagement.jsp">User Management</a>
+                <%if (loggedInUser != null) {
+                        if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
+                }
+            }
+                %>
             </span>
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
+                 <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                    }
+                %>
             </span>
         </div>
         <h1>Add a User to the database </h1>

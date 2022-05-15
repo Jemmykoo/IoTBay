@@ -10,17 +10,26 @@ jemima --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
         <title>Welcome</title>
     </head>
     <body>
-         <div id="bar">
+        <%
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
+        %>
+        <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
                 <a href="PaymentHistoryController">Payment History</a>
-                <a href="userManagement.jsp">User Management</a>
-            </span>
+                <%if (loggedInUser != null) {
+                        if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
+                                               }
+                                           }
+                %>            </span>
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
+                <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                    }
+                %>
             </span>
         </div>
         <% String firstname = request.getParameter("firstname");
@@ -29,10 +38,10 @@ jemima --%> <%@page contentType="text/html" pageEncoding="UTF-8"%>
             String email
                     = request.getParameter("email");
             String phone = request.getParameter("phone");
-                String password = request.getParameter("password");%>
+            String password = request.getParameter("password");%>
         <h1>Welcome! <%= firstname%> you are now registered</h1>
         <% User user = new User(firstname, lastname, email, phone, password);
-                session.setAttribute(email, user);%>
+            session.setAttribute(email, user);%>
         <div class="footer"><div></div></div>
     </body>
 </html>

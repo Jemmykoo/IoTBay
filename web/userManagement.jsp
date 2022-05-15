@@ -15,7 +15,10 @@
         <title>User Management</title>
     </head>
     <body>
-         <div id="bar">
+        <%
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
+        %>
+        <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
@@ -26,6 +29,9 @@
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
+                <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                    }
+                %>
             </span>
         </div>
         <%
@@ -53,7 +59,7 @@
                     <td><%=user.getEmail()%></td>
                     <td><%=user.getPhone()%></td>
                     <td><%=user.getIsStaff()%></td>
-                    
+
                     <td> <form method="post" action="DeleteUserServlet">  
                             <button name="id" type="submit" value="<%=user.getId()%>">Delete</button>
                         </form>

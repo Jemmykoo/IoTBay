@@ -16,6 +16,8 @@
     </head>
     <body>
         <%
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
+
             String productNameErr = (String) session.getAttribute("productNameErr");
             String unitPriceErr = (String) session.getAttribute("unitPriceErr");
             String productTypeErr = (String) session.getAttribute("productTypeErr");
@@ -28,11 +30,18 @@
                 <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
                 <a href="PaymentHistoryController">Payment History</a>
-                <a href="userManagement.jsp">User Management</a>
+                <%if (loggedInUser != null) {
+                        if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
+                               }
+                           }
+                %>
             </span>
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
+                <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                    }
+                %>
             </span>
         </div>
         <h1>Edit an existing item in the catalogue.</h1>

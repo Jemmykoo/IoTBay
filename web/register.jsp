@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="uts.isd.model.*" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,17 +15,26 @@
         <title>Registration Page</title>
     </head>
     <body>
+        <%
+            User loggedInUser = (User) session.getAttribute("LoggedInUser");
+        %>
         <div id="bar">
             <span id="links">
                 <a href="index.jsp">Home</a>
                 <a href="products.jsp">Products</a>                
                 <a href="payment.jsp">Payment</a>
                 <a href="PaymentHistoryController">Payment History</a>
-                <a href="userManagement.jsp">User Management</a>
-            </span>
+                <%if (loggedInUser != null) {
+                        if (loggedInUser.getIsStaff() == true) {%>  <a href="userManagement.jsp">User Management</a><%
+                        }
+                    }
+                %>            </span>
             <span id="loginlinks">
                 <a href="register.jsp">Register</a>
                 <a href="login.jsp">Login</a>
+                <%if (loggedInUser != null) {%><a href="logout.jsp">Logout</a> <%
+                    }
+                %>
             </span>
         </div>
         <h1>Registration Page</h1>
@@ -35,7 +46,7 @@
                     <tr><td>Email:</td><td><input type="text" name="email" /></td></tr>
                     <tr><td>Password:</td><td><input type="text" name="password" /></td></tr>
                     <tr><td>Phone Number:</td><td><input type="text" name="phoneNo" /></td></tr>
-                   <input type="hidden" value=false /></td></tr> 
+                    <input type="hidden" value=false /></td></tr> 
                     <tr><td></td><td>
                             <input class="button" type="submit" value="Add User"></td>
                     </tr>
