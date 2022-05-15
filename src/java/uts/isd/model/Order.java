@@ -10,12 +10,12 @@ package uts.isd.model;
  * @author gavin
  */
 public class Order {
-
+    
     private int orderID; 
     private int ID;
     private String orderDate;
     private double orderPrice;
-
+    
     public Order(int orderID, int ID, String orderDate, double orderPrice){
         this.orderID = orderID;
         this.ID = ID;
